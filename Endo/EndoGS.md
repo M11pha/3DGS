@@ -14,5 +14,8 @@ python -c "import torch; print("torch.cuda.is_avaliable()")"
 pip install submodules/depth-diff-gaussian-rasterization
 pip install submodules/pytorch3d
 pip install submodules/simple-knn
+
+python train.py data/cutting_tissues_twice/ --workspace output/cutting/
+
 ```
 
