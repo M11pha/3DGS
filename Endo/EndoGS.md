@@ -10,6 +10,7 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 git clone --branch depth https://github.com/ingra14m/depth-diff-gaussian-rasterization.git --recursive
 git clone https://github.com/facebookresearch/pytorch3d.git
 
+python -c "import torch; print("torch.cuda.is_avaliable()")"
 pip install submodules/depth-diff-gaussian-rasterization
 pip install submodules/pytorch3d
 pip install submodules/simple-knn
