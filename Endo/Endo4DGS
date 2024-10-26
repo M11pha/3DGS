@@ -79,3 +79,7 @@
 | 24.10.26/4090 Laptop | EndoNerf-Pulling | 37.48 | 0.960 | 0.039 |   5mins    |    7GB     |  1K+3K   |
 |                      |                  |       |       |       |            |            |          |
 
+```bash
+python render.py --model_path output/endonerf/pulling --pc --configs arguments/endonerf.py
+```
+
