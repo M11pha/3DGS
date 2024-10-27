@@ -4,7 +4,7 @@
 
 |      Time/Device       |      数据集      |  PSNR  | SSIM  | LPIPS  | Train Time | GPU Memory | 迭代次数 |
 | :--------------------: | :--------------: | :----: | :---: | :----: | :--------: | :--------: | :------: |
-| 2024.10.25/4090 Laptop | EndoNerf-Cutting | 34.623 | 0.947 | 0.0486 |            |            |          |
+| 2024.10.25/4090 Laptop | EndoNerf-Cutting | 34.623 | 0.947 | 0.0486 |            |            |  1K+60K  |
 | 2024.10.26/4090 Laptop | EndoNerf-Putting |        |       |        |  3 Hours   |            |  1k+60K  |
 |                        |                  |        |       |        |            |            |          |
 
