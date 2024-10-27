@@ -2,12 +2,12 @@
 
 ## 实验记录
 
-|      Time/Device       |      数据集      |     PSNR      |     SSIM     |    LPIPS     |             备注              | Train Time | GPU Memory | 迭代次数 |
-| :--------------------: | :--------------: | :-----------: | :----------: | :----------: | :---------------------------: | :--------: | :--------: | :------: |
-|         Paper          |     EndoNerf     | 37.935(0.088) | 0.966(0.003) | 0.066(0.030) |                               |            |            |  3K+60K  |
-| 2024.10.25/4090 Laptop | EndoNerf-Cutting |    34.623     |    0.947     |    0.0486    |                               |            |            |  3K+60K  |
-|  24.10.27/4090 Server  | EndoNerf-Cutting |    34.983     |    0.950     |    0.048     |                               |     1h     |    Full    |  3K+60K  |
-|  24.10.27/4090 Server  | EndoNerf-Pulling |    36.249     |    0.953     |    0.0699    | colmap  3.8 windows with cuda |  40 mins   |    Full    |  3K+60K  |
+|      Time/Device       |      数据集      |     PSNR      |     SSIM     |    LPIPS     |             备注             | Train Time | GPU Memory | 迭代次数 |
+| :--------------------: | :--------------: | :-----------: | :----------: | :----------: | :--------------------------: | :--------: | :--------: | :------: |
+|         Paper          |     EndoNerf     | 37.935(0.088) | 0.966(0.003) | 0.066(0.030) |                              |            |            |  3K+60K  |
+| 2024.10.25/4090 Laptop | EndoNerf-Cutting |    34.623     |    0.947     |    0.0486    |                              |            |            |  3K+60K  |
+|  24.10.27/4090 Server  | EndoNerf-Cutting |    34.983     |    0.950     |    0.048     |                              |     1h     |    Full    |  3K+60K  |
+|  24.10.27/4090 Server  | EndoNerf-Pulling |    36.249     |    0.953     |    0.0699    | colmap 3.8 windows with cuda |  40 mins   |    Full    |  3K+60K  |
 
 
 
@@ -66,5 +66,8 @@ python inference.py data/endonerf/pulling_soft_tissues/ --model_path output/pull
 # evaluation
 python eval_rgb.py --gt_dir data/endonerf/cutting_tissues_twice/images --mask_dir data/endonerf/cutting_tissues_twice/gt_masks --img_dir output/cutting/point_cloud/iteration_60000/render
 
+python eval_rgb.py --gt_dir .\output\pulling\point_cloud\iteration_60000\gt_choose --mask_dir .\output\pulling\point_cloud\iteration_60000\masks_choose --img_dir .\output\pulling\point_cloud\iteration_60000\render_choose
+
+python eval_rgb.py --gt_dir .\output\cutting\point_cloud\iteration_60000\gt_choose --mask_dir .\output\cutting\point_cloud\iteration_60000\masks_choose --img_dir .\output\cutting\point_cloud\iteration_60000\render_choose
 ```
 
