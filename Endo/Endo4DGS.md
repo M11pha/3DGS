@@ -70,7 +70,6 @@
 </table>
 
 
-
 ## 实验记录
 
 |     Time/Device      |      数据集      | PSNR  | SSIM  | LPIPS | Train Time | GPU Memory | 迭代次数 |
@@ -81,5 +80,6 @@
 
 ```bash
 python render.py --model_path output/endonerf/pulling --pc --configs arguments/endonerf.py
+python render.py --model_path output/endonerf/cutting --pc --configs arguments/endonerf.py
 ```
 
