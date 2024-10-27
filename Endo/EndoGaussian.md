@@ -5,6 +5,7 @@
 
 |     Time/Device      |      数据集      |  PSNR  | SSIM  | LPIPS | Train Time | GPU Memory | 迭代次数 |
 | :------------------: | :--------------: | :----: | :---: | :---: | :--------: | :--------: | :------: |
+|        Paper         |     EndoNerf     | 37.849 | 0.963 | 0.054 |            |            |          |
 | 24.10.26/4090 Laptop | EndoNerf-Cutting | 35.808 | 0.956 | 0.102 |   2 min    |    5 GB    |  1K+3K   |
 | 24.10.26/4090 Laptop | EndoNerf-Pulling | 35.235 | 0.958 | 0.104 |   3 min    |    3 GB    |  1K+3K   |
 |                      |                  |        |       |       |            |            |          |

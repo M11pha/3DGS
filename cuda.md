@@ -9,5 +9,8 @@ stat /usr/local/cuda # 查看当前的软链接
 sudo rm -rf /usr/local/cuda
 sudo ln -s /usr/local/cuda-11.7 /usr/local/cuda
 sudo ln -s /usr/local/cuda-11.8 /usr/local/cuda
+
+# 查看显卡实时状态
+watch -n 1 -d nvidia-smi
 ```
 
