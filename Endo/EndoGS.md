@@ -1,5 +1,9 @@
 # EndoGS
 
+## 存在问题
+
++ 用colmap生成初始点云时未去除工具，但在训练时重点为去工具重建
+
 ## 实验记录
 
 |      Time/Device       |      数据集      |     PSNR      |     SSIM     |    LPIPS     |             备注             | Train Time | GPU Memory | 迭代次数 |
