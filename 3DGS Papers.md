@@ -13,6 +13,8 @@
 |                                                              |                                                              |            |                                                              | |
 | 3D Gaussian Splatting for Real-Time Radiance Field Rendering | [ACM Transactions on Graphics 2023.8](https://arxiv.org/abs/2308.04079) |            | [3DGS开山之作](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/) | [3DGS 14.3K](https://github.com/graphdeco-inria/gaussian-splatting) |
 | 4D Gaussian Splatting for Real-Time Dynamic Scene Rendering  |    [CVPR 2024 / 2023.8](https://arxiv.org/abs/2310.08528)    |            |                                                              | [4DGS 2.2K](https://github.com/hustvl/4DGaussians) |
+|  |  | | |  |
+| 精确重建 |  | | |  |
 | SuGaR: Surface-Aligned Gaussian Splatting for Efficient 3D Mesh Reconstruction and High-Quality Mesh Rendering |   [CVPR 2024 / 2023.11](https://arxiv.org/abs/2311.12775)    |            |                                                              | [SuGaR 2.2K](https://github.com/Anttwo/SuGaR) |
 |                                                              |                                                              |            |                                                              |  |
 |                                                              |                                                              |            |                                                              |  |
