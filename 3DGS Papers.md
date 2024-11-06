@@ -16,6 +16,7 @@
 |  |  | | |  |
 | 精确重建 |  | | |  |
 | SuGaR: Surface-Aligned Gaussian Splatting for Efficient 3D Mesh Reconstruction and High-Quality Mesh Rendering |   [CVPR 2024 / 2023.11](https://arxiv.org/abs/2311.12775)    |            |                                                              | [SuGaR 2.2K](https://github.com/Anttwo/SuGaR) |
+| GaussianPro: 3D Gaussian Splatting with Progressive Propagation |  | | |  |
 | PGSR: Planar-based Gaussian Splatting for Efficient and High-Fidelity Surface Reconstruction |                                                              |            |                                                              |  |
 |                                                              |                                                              |            |                                                              |  |
 
