@@ -14,7 +14,7 @@ $ python metrics.py --model_path output/endonerf/cutting_fdm -p test
 
 |        Time/Device         |      数据集      |  PSNR  | SSIM  | LPIPS |  FPS  | Train Time | GPU Memory | 迭代次数 |
 | :------------------------: | :--------------: | :----: | :---: | :---: | :---: | :--------: | :--------: | :------: |
-| Paper/NVIDIA RTX A5000 GPU |     EndoNerf     | 37.90  | 0.958 | 0.06  | 338.8 |    64 s    |            |    3K    |
+| Paper/NVIDIA RTX A5000 GPU |   EndoNerf * 6   | 37.90  | 0.958 | 0.06  | 338.8 |    64 s    |            |    3K    |
 |    24.11.1/4090 Laptop     | EndoNerf-Cutting | 38.792 | 0.967 | 0.04  |  373  |    82 s    |     1G     |    3K    |
 |    24.11.1/4090 Laptop     | EndoNerf-Pulling | 38.325 | 0.961 | 0.064 |  384  |    75 s    |     1G     |    3K    |
 |                            |                  |        |       |       |       |            |            |          |
