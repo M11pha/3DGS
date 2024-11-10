@@ -82,6 +82,10 @@
 |                      |                  |       |       |       |      |            |            |          |
 
 ```bash
+$ python scripts/pre_dam_dep.py --dataset_root /home/ekko/datasets/Endo_StereoMIS/Dynamic/stereo_P2_7_555_1165
+
+$ PYTHONPATH='.'  python train.py -s ./dataset/endonerf/pulling_soft_tissues --port 6017 --expname "endonerf/pulling" --configs arguments/endonerf.py 
+
 python render.py --model_path output/endonerf/pulling --pc --configs arguments/endonerf.py
 python render.py --model_path output/endonerf/cutting --pc --configs arguments/endonerf.py
 ```
