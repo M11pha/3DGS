@@ -13,9 +13,9 @@ $ python render.py --model_path output/endonerf/cutting_fdm  --skip_train --reco
 $ python metrics.py --model_path output/endonerf/cutting_fdm -p test
 
 # StereoMIS
-$ python train.py -s data/StereoMIS/P3/stereo_P3_9100_9467 --expname StereoMIS/p3 --configs arguments/endonerf/default.py 
-$ python render.py --model_path output/StereoMIS/p3 --reconstruct_test --configs arguments/endonerf/default.py
-$ python metrics.py --model_path output/StereoMIS/p3 -p test
+$ python train.py -s /home/ekko/datasets/Endo_StereoMIS/Dynamic/stereo_P1_14760_15420 --expname StereoMIS/stereo_P1_14760_15420 --configs arguments/endonerf/default.py 
+$ python render.py --model_path output/StereoMIS/stereo_P1_14760_15420 --reconstruct_test --configs arguments/endonerf/default.py
+$ python metrics.py --model_path output/StereoMIS/stereo_P1_14760_15420 -p test
 ```
 
 ## 实验记录
