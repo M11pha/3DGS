@@ -27,7 +27,7 @@ $ python run_all.py --dataset_path ./data/StereoMIS --subdata_path stereo_P2_6_9
 | Paper/NVIDIA RTX A5000 GPU |             EndoNerf * 6             | 37.90  | 0.958  | 0.06  | 338.8 |    64 s    |            |    3K    |
 |    24.11.1/4090 Laptop     |           EndoNerf-Cutting           | 38.792 | 0.967  | 0.04  |  373  |    82 s    |     1G     |    3K    |
 |    24.11.1/4090 Laptop     |           EndoNerf-Pulling           | 38.325 | 0.961  | 0.064 |  384  |    75 s    |     1G     |    3K    |
-|                            |                                      |        |        |       |       |            |            |          |
+|        Time/Device         |                数据集                |  PSNR  |  SSIM  | LPIPS |  FPS  | Train Time | GPU Memory | 迭代次数 |
 | Paper/NVIDIA RTX A5000 GPU |              StereoMIS               | 30.48  | 0.8274 | 0.21  |  330  |    66s     |            |    3K    |
 |    24.11.7/4090 Laptop     |      stereo_P1_14760_15420 RAFT      | 30.728 | 0.862  | 0.212 |  277  |    105s    |    1.1G    |    3K    |
 |    24.11.8/4090 Laptop     | stereo_P1_14760_15420 depth_anything | 30.775 | 0.861  | 0.220 |  145  |    106s    |    1.1G    |    3K    |
