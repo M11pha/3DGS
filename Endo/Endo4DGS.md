@@ -82,11 +82,20 @@
 |                      |                  |       |       |       |      |            |            |          |
 
 ```bash
+# torch 2.0.0+cu118会报错RuntimeError: numel: integer multiplication overflow 更换为2.0.1
 $ python scripts/pre_dam_dep.py --dataset_root /home/ekko/datasets/Endo_StereoMIS/Dynamic/stereo_P2_7_555_1165
 
-$ PYTHONPATH='.'  python train.py -s ./dataset/endonerf/pulling_soft_tissues --port 6017 --expname "endonerf/pulling" --configs arguments/endonerf.py 
 
-python render.py --model_path output/endonerf/pulling --pc --configs arguments/endonerf.py
+python scripts/pre_dam_dep.py --dataset_root ./dataset/StereoMIS/Dynamic/stereo_P1_14760_15420 --rgb_paths images
+
+$ PYTHONPATH='.'  python train.py -s ./dataset/StereoMIS/Dynamic/stereo_P1_14760_15420 --port 6017 --expname "StereoMIS/Dynamic/stereo_P1_14760_15420" --configs arguments/stereomis.py 
+
+python render.py --model_path output/StereoMIS/Dynamic/stereo_P1_14760_15420 --configs arguments/stereomis.py
+python metrics.py --model_path output/StereoMIS/Dynamic/stereo_P1_14760_15420
+
 python render.py --model_path output/endonerf/cutting --pc --configs arguments/endonerf.py
+python run_all.py --dataset_path ./dataset/StereoMIS/Dynamic/stereo_P1_14760_15420 
+
+PYTHONPATH='.'  python train.py -s ./dataset/endonerf/pulling_soft_tissues --port 6017 --expname "endonerf/pulling" --configs arguments/endonerf.py 
 ```
 

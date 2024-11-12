@@ -7,6 +7,7 @@
 # EndoNeRF
 $ python train.py -s data/endonerf/pulling_soft_tissues --expname endonerf/pulling_fdm --configs arguments/endonerf/default.py
 $ python render.py --model_path output/endonerf/pulling_fdm  --skip_train --reconstruct_test --configs arguments/endonerf/default.py
+$ python metrics.py --model_path output/endonerf/pulling_fdm -p test
 
 $ python train.py -s data/endonerf/cutting_tissues_twice --expname endonerf/cutting_fdm --configs arguments/endonerf/default.py 
 $ python render.py --model_path output/endonerf/cutting_fdm  --skip_train --reconstruct_test --configs arguments/endonerf/default.py
@@ -18,6 +19,7 @@ $ python render.py --model_path output/StereoMIS/stereo_P1_14760_15420 --reconst
 $ python metrics.py --model_path output/StereoMIS/stereo_P1_14760_15420 -p test
 $ python run_all.py --data_path Dynamic/stereo_P2_6_9060_9320
 $ python run_all.py --dataset_path /home/ekko/datasets/Endo_StereoMIS/Dynamic --subdata_path stereo_P3_15030_16815
+$ python run_all.py --dataset_path ./data --subdata_path stereo_P1_14760_15420
 ```
 
 ## 实验记录
