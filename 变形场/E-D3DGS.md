@@ -4,7 +4,7 @@
 $ python script/pre_n3v.py --videopath /home/ekko/datasets/Neural_3D_Video/cook_spinach
 $ python script/downsample_point.py /home/ekko/datasets/Neural_3D_Video/cook_spinach/colmap/dense/workspace/fused.ply /home/ekko/datasets/Neural_3D_Video/cook_spinach/points3D_downsample.ply
 $ python train.py -s /home/ekko/datasets/Neural_3D_Video/cook_spinach --configs arguments/dynerf/cook_spinach.py --model_path ./output --expname /home/ekko/datasets/Neural_3D_Video/cook_spinach -r 2
-
+$ python render.py --model_path ./output --configs arguments/$DATASET/$CONFIG.py
 
 ```
 
