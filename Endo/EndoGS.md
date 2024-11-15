@@ -52,7 +52,7 @@ conda create -n endogs python=3.9
 conda create -n gaussianpro python=3.9 
 conda env create --file environment.yml
 # 单独用pip安装 imageio=2.31.2  lpips=0.1.4
-pip3 install torch==2.0.1 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip3 install torch==1.13.1 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 pip3 install torch==2.5.1 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 git clone --branch depth https://github.com/ingra14m/depth-diff-gaussian-rasterization.git --recursive
 git clone https://github.com/facebookresearch/pytorch3d.git
