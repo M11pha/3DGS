@@ -2,7 +2,7 @@
 
 ```bash
 # The first example (object removal)
-python inference_propainter.py --video inputs/object_removal/bmx-trees --mask inputs/object_removal/bmx-trees_mask 
+CUDA_VISIBLE_DEVICES=2 python inference_propainter.py --video inputs/object_removal/bmx-trees --mask inputs/object_removal/bmx-trees_mask  --save_frames
 
 python inference_propainter.py --video inputs/object_removal/EndoNeRF_Pulling --mask inputs/object_removal/EndoNeRF_Pulling_mask --height 512 --width 640 --save_frames
 
