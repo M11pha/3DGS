@@ -25,6 +25,7 @@ $ depth-pro-run -i ./data/images -o ./output/cutting --skip-display
 ## Depth Any Video
 
 ```bash
-$ python run_infer.py --data_path ./demos/gt_video.mp4 --output_dir ./outputs/ --max_resolution 960
+export HF_ENDPOINT=https://hf-mirror.com
+$ python run_infer.py --data_path ./demos/wooly_mammoth.mp4 --output_dir ./outputs/ --max_resolution 960
 ```
 
