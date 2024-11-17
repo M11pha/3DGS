@@ -5,7 +5,8 @@
 ```bash
 python run.py \
   --encoder "vitl" \
-  --img-path ./input --outdir ./output 
+  --img-path ./input --outdir ./output \
+  --pred-only
   
   python run.py \
   --encoder <vits | vitb | vitl | vitg> \
