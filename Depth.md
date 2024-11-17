@@ -25,7 +25,15 @@ $ depth-pro-run -i ./data/images -o ./output/cutting --skip-display
 ## Depth Any Video
 
 ```bash
+ssh -p 44139 root@i-2.gpushare.com
+etm3U8zC6hucq3GqbpNZ8wSPDpq2ytQY
+
+scp -P 44139 /home/ekko/datasets/Endo_StereoMIS/Inpainting/Dynamic/stereo_P2_6_9400_9900/inpaint_out.mp4 root@i-2.gpushare.com:/root/github/DepthAnyVideo/demos
+
+# 需要改变huaggingface模型下载网站并额外安装ffmpeg
 export HF_ENDPOINT=https://hf-mirror.com
+sudo apt install ffmpeg
 $ python run_infer.py --data_path ./demos/wooly_mammoth.mp4 --output_dir ./outputs/ --max_resolution 960
+$ python run_infer.py --data_path ./demos/endonerf/cutting.mp4 --output_dir ./outputs/ --max_resolution 960
 ```
 
