@@ -6,6 +6,8 @@ $ python script/downsample_point.py /home/ekko/datasets/Neural_3D_Video/cook_spi
 $ python train.py -s /home/ekko/datasets/Neural_3D_Video/cook_spinach --configs arguments/dynerf/cook_spinach.py --model_path ./output --expname /home/ekko/datasets/Neural_3D_Video/cook_spinach -r 2
 $ python render.py --model_path ./output --configs arguments/$DATASET/$CONFIG.py
 
+# HDU 4090
+$ python train.py -s /home/gouhao/dataset/Neural_3D_Video/cook_spinach --configs arguments/dynerf/cook_spinach.py --model_path ./output --expname /home/gouhao/dataset/Neural_3D_Video/cook_spinach -r 2
 ```
 
 
