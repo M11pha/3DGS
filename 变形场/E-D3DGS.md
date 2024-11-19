@@ -8,6 +8,9 @@ $ python render.py --model_path ./output --configs arguments/$DATASET/$CONFIG.py
 
 # HDU 4090
 $ CUDA_VISIBLE_DEVICES=1  python train.py -s /home/gouhao/dataset/Neural_3D_Video/cook_spinach --configs arguments/dynerf/cook_spinach.py --model_path ./output --expname /home/gouhao/dataset/Neural_3D_Video/cook_spinach -r 2
+$ python render.py --model_path ./output --configs arguments/dynerf/cook_spinach.py
+$ python render.py --model_path ./output --configs arguments/dynerf/cook_spinach.py --skip_train --skip_video
+$ CUDA_VISIBLE_DEVICES=2  python metrics.py --model_path  ./output
 ```
 
 
