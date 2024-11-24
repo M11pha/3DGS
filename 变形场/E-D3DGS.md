@@ -56,7 +56,12 @@ $ CUDA_VISIBLE_DEVICES=2  python metrics.py --model_path  ./output
 
 $$
 \mathcal{F}_{\theta} : (\mathbf{z}_g, \mathbf{z}_t) \rightarrow (\Delta \mathbf{x}, \Delta \mathbf{r}, \Delta \mathbf{s}, \Delta \sigma, \Delta Y)
+\\ \mathbf{z}_g \in \mathbb{R}^{32}, \mathbf{z}_t \in \mathbb{R}^{256}
+
 $$
+
++ 这个公式表示一个参数化的函数 $\mathcal{F}_\theta$，它将输入$(z_g, z_t)$映射到输出$(\Delta \mathbf{x}, \Delta \mathbf{r}, \Delta \mathbf{s}, \Delta \sigma, \Delta Y)$。具体解释如下：
+    1. **函数符号$\mathcal{F}_\theta$：** 表示一个带参数$\theta$的函数或模型。通常，这种符号用来表示深度学习模型或某种拟合函数，$\thetaθ$是模型的参数，例如神经网络的权重。
 
 ### 3.3 Coarse-Fine Deformation
 
