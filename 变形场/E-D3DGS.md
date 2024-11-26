@@ -11,6 +11,21 @@ $ CUDA_VISIBLE_DEVICES=1  python train.py -s /home/gouhao/dataset/Neural_3D_Vide
 $ python render.py --model_path ./output --configs arguments/dynerf/cook_spinach.py
 $ python render.py --model_path ./output --configs arguments/dynerf/cook_spinach.py --skip_train --skip_video
 $ CUDA_VISIBLE_DEVICES=2  python metrics.py --model_path  ./output
+
+
+spanish
+model para 
+{'sh_degree': 3, 
+'source_path': '/home/ekko/datasets/Neural_3D_Video/cook_spinach', 
+'model_path': './output', 
+'images': 'images', 
+'resolution': 2, 
+'white_background': True, 
+'data_device': 'cuda', 
+'eval': True, 
+'render_process': False, 
+'loader': 'dynerf', 
+'shuffle': True}
 ```
 
 
@@ -57,7 +72,7 @@ $ CUDA_VISIBLE_DEVICES=2  python metrics.py --model_path  ./output
 $$
 \mathcal{F}_{\theta} : (\mathbf{z}_g, \mathbf{z}_t) \rightarrow (\Delta \mathbf{x}, \Delta \mathbf{r}, \Delta \mathbf{s}, \Delta \sigma, \Delta Y)
 \\ \mathbf{z}_g \in \mathbb{R}^{32}, \mathbf{z}_t \in \mathbb{R}^{256}
-
+
 $$
 
 + 这个公式表示一个参数化的函数 $\mathcal{F}_\theta$，它将输入$(z_g, z_t)$映射到输出$(\Delta \mathbf{x}, \Delta \mathbf{r}, \Delta \mathbf{s}, \Delta \sigma, \Delta Y)$。具体解释如下：
