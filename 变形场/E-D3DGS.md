@@ -12,6 +12,17 @@ $ python render.py --model_path ./output --configs arguments/dynerf/cook_spinach
 $ python render.py --model_path ./output --configs arguments/dynerf/cook_spinach.py --skip_train --skip_video
 $ CUDA_VISIBLE_DEVICES=2  python metrics.py --model_path  ./output
 
+# Laptop 4090 HyperNeRF
+python script/pre_hypernerf.py --videopath /home/ekko/datasets/HyperNeRF/vrig-3dprinter
+
+# L-4090 Cutting
+$ python train.py -s /home/ekko/datasets/EndoNeRF_PRO/cutting_tissues_twice --configs arguments/endonerf/cutting.py --model_path ./output --expname /home/ekko/datasets/EndoNeRF_PRO/cutting_tissues_twice -r 2
+
+```
+
+## Neural_3D_Video 数据集读取
+
+```bash
 
 spanish
 model para 
@@ -26,6 +37,70 @@ model para
 'render_process': False, 
 'loader': 'dynerf', 
 'shuffle': True}
+
+# Scene类初始化中加载数据集----------
+# args.source_path = '/home/ekko/datasets/Neural_3D_Video/cook_spinach' 数据集所在地址
+# args.eval = True
+# duration  = 300
+if loader == "dynerf": # Neural_3D_Video 数据集
+            scene_info = sceneLoadTypeCallbacks["Dynerf"](args.source_path, args.source_path, args.eval, duration=300)
+# 跳转至dataset_reader.py---------
+# path = args.source_path
+# images = args.source_path
+# eval = True
+# duration = 300
+def readColmapSceneInfoDynerf(path, images, eval, duration=300, testonly=None)
+```
+
+```python
+# 最终都是要获取一个SceneInfo类的对象
+class SceneInfo(NamedTuple):
+    point_cloud: BasicPointCloud
+    train_cameras: list
+    test_cameras: list
+    video_cameras: list
+    nerf_normalization: dict
+    ply_path: str
+    
+# point_cloud--------------------------
+# 从ply文件读取每个点的位置，颜色，法线，返回为BasicPointCloud对象
+# 点云文件读取函数
+def fetchPly(path):
+    plydata = PlyData.read(path)
+    vertices = plydata['vertex']
+    positions = np.vstack([vertices['x'], vertices['y'], vertices['z']]).T
+    colors = np.vstack([vertices['red'], vertices['green'], vertices['blue']]).T / 255.0
+    normals = np.vstack([vertices['nx'], vertices['ny'], vertices['nz']]).T
+    return BasicPointCloud(points=positions, colors=colors, normals=normals)
+# ply文件分析
+ply
+format binary_little_endian 1.0
+comment Created by Open3D
+element vertex 93172
+property double x
+property double y
+property double z
+property double nx
+property double ny
+property double nz
+property uchar red
+property uchar green
+property uchar blue
+end_header
+# deform3dgs endonerf cutting ini ply
+ply
+format binary_little_endian 1.0
+element vertex 30699
+property float x
+property float y
+property float z
+property float nx
+property float ny
+property float nz
+property uchar red
+property uchar green
+property uchar blue
+end_header
 ```
 
 
@@ -72,7 +147,6 @@ model para
 $$
 \mathcal{F}_{\theta} : (\mathbf{z}_g, \mathbf{z}_t) \rightarrow (\Delta \mathbf{x}, \Delta \mathbf{r}, \Delta \mathbf{s}, \Delta \sigma, \Delta Y)
 \\ \mathbf{z}_g \in \mathbb{R}^{32}, \mathbf{z}_t \in \mathbb{R}^{256}
-
 $$
 
 + 这个公式表示一个参数化的函数 $\mathcal{F}_\theta$，它将输入$(z_g, z_t)$映射到输出$(\Delta \mathbf{x}, \Delta \mathbf{r}, \Delta \mathbf{s}, \Delta \sigma, \Delta Y)$。具体解释如下：
