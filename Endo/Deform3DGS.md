@@ -5,13 +5,13 @@
 ```bash
 # 默认直接在output文件夹下，train的--expname不用带output
 # EndoNeRF
-$ python train.py -s data/endonerf/pulling_soft_tissues --expname endonerf/pulling_fdm --configs arguments/endonerf/default.py
-$ python render.py --model_path output/endonerf/pulling_fdm  --skip_train --reconstruct_test --configs arguments/endonerf/default.py
-$ python metrics.py --model_path output/endonerf/pulling_fdm -p test
+$ python train.py -s data/endonerf_pro/pulling_soft_tissues --expname endonerf_pro2/pulling_fdm --configs arguments/endonerf/default.py
+$ python render.py --model_path output/endonerf_pro2/pulling_fdm  --skip_train --reconstruct_test --configs arguments/endonerf/default.py
+$ python metrics.py --model_path output/endonerf_pro2/pulling_fdm -p test
 
-$ python train.py -s data/endonerf/cutting_tissues_twice --expname endonerf/cutting_fdm --configs arguments/endonerf/default.py 
-$ python render.py --model_path output/endonerf/cutting_fdm  --skip_train --reconstruct_test --configs arguments/endonerf/default.py
-$ python metrics.py --model_path output/endonerf/cutting_fdm -p test
+$ python train.py -s data/endonerf_pro/cutting_tissues_twice --expname endonerf_pro/cutting_fdm --configs arguments/endonerf/default.py 
+$ python render.py --model_path output/endonerf_pro/cutting_fdm   --reconstruct_test --configs arguments/endonerf/default.py
+$ python metrics.py --model_path output/endonerf_pro/cutting_fdm -p test
 
 # StereoMIS
 $ python train.py -s /home/ekko/datasets/Endo_StereoMIS/Dynamic/stereo_P1_14760_15420 --expname StereoMIS/stereo_P1_14760_15420 --configs arguments/endonerf/default.py 
