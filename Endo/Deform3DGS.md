@@ -5,9 +5,9 @@
 ```bash
 # 默认直接在output文件夹下，train的--expname不用带output
 # EndoNeRF
-$ python train.py -s data/endonerf_pro/pulling_soft_tissues --expname endonerf_pro2/pulling_fdm --configs arguments/endonerf/default.py
-$ python render.py --model_path output/endonerf_pro2/pulling_fdm  --skip_train --reconstruct_test --configs arguments/endonerf/default.py
-$ python metrics.py --model_path output/endonerf_pro2/pulling_fdm -p test
+$ python train.py -s data/endonerf_pro/pulling_soft_tissues --expname endonerf_pro2_inpainting/pulling_fdm --configs arguments/endonerf/default.py
+$ python render.py --model_path output/endonerf_pro2_inpainting/pulling_fdm  --skip_train --reconstruct_test --configs arguments/endonerf/default.py
+$ python metrics.py --model_path output/endonerf_pro2_inpainting/pulling_fdm -p test
 
 $ python train.py -s data/endonerf_pro/cutting_tissues_twice --expname endonerf_pro_inpainting/cutting_fdm --configs arguments/endonerf/default.py 
 $ python render.py --model_path output/endonerf_pro_inpainting/cutting_fdm   --reconstruct_test --configs arguments/endonerf/default.py
