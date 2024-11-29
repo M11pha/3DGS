@@ -1,5 +1,11 @@
 # OmniMotion
 
+```bash
+python train.py --config configs/default.txt --data_dir /home/ekko/datasets/omnimotion/swing
+```
+
+
+
 ## Paper
 
 ### 3. Overview
