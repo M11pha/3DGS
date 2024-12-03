@@ -2,6 +2,10 @@
 
 ```bash
 python train.py --config configs/default.txt --data_dir /home/ekko/datasets/omnimotion/swing
+
+python main_processing.py --data_dir /home/ekko/github/INN/omnimotion/data/pulling/color --chain
+
+python filter_raft.py --data_dir /home/ekko/github/INN/omnimotion/data/pulling --cycle_th 3
 ```
 
 
