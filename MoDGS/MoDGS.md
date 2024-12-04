@@ -17,7 +17,7 @@
 
 + 问题定义：给定一个随意捕获的单目视频，目标是从该视频生成新视角图像
 + 学习一组在**canonical space**中的高斯==$\{G_i \vert i=1, \cdots,N\}$==
-+ 学习一个变形场 ==${T}_t:\mathbb{R}^3 \rightarrow \mathbb{R}^3$== 将规范空间里的高斯转换到一个具体的时间步$t$中
++ 学习一个变形场 ==$\mathcal{T}_t:\mathbb{R}^3 \rightarrow \mathbb{R}^3$== 将规范空间里的高斯转换到一个具体的时间步$t$中
 + 然后，对于一个时间步$t$和一个相机姿态，使用splatting算法来渲染一张图像
 
 ### 总览
