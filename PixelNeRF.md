@@ -20,5 +20,7 @@ PixelNeRF 对于少视图新颖视图合成具有许多理想的特性。首先�
 
 ```bash
 python eval/gen_video.py  -n dtu --gpu_id=0 --split val -P '22 25 28'  -D data/rs_dtu_4 -S 3 --scale 0.25
+
+python train/train.py -n dtu_exp -c conf/exp/dtu.conf -D data/rs_dtu_4 -V 3 --gpu_id=0 --resume
 ```
 
