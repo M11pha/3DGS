@@ -99,3 +99,23 @@ $$
 现在，我们可以聚合所有样本中的对应关系 xk j 以生成单个对应关系 xˆj。这种聚合类似于 NeRF 中样本点颜色的聚合方式：我们使用 alpha 合成，第 k 个样本的 alpha 值为 αk = 1 − exp(−σk)。然后我们将 x^j 计算为：
 
 使用类似的过程来合成 ck 以获得 pi 的图像空间颜色 Cˆi。然后使用我们的固定正交相机模型投影 xˆj，以生成查询位置 pi 的预测 2D 对应位置 pˆj。
+
+```bash
+# 双射场，将3D点与规范坐标建立映射
+self.deform_mlp = NVPSimplified(n_layers=6,
+                                feature_dims=128,
+                                hidden_size=[256, 256, 256],
+                                proj_dims=256,
+                                code_proj_hidden_size=[],
+                                proj_type='fixed_positional_encoding',
+                                pe_freq=args.pe_freq,
+                                normalization=False,
+                                affine=args.use_affine,
+                                device=device).to(device)
+                                        
+# proj = get_projection_layer(proj_dims=proj_dims, type=proj_type, pe_freq=pe_freq)
+proj = get_projection_layer(256, 'fixed_positional_encoding', 4)
+# FixedPositionalEncoding(2, kwargs.get("pe_freq", 4), kwargs.get("proj_dims", 128))
+FixedPositionalEncoding(2, 4, 256)
+```
+
