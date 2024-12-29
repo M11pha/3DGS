@@ -6,6 +6,14 @@ python train.py --config configs/default.txt --data_dir /home/ekko/datasets/omni
 python main_processing.py --data_dir /home/ekko/github/INN/omnimotion/data/pulling --chain
 
 python filter_raft.py --data_dir /home/ekko/github/INN/omnimotion/data/pulling --cycle_th 3
+# vis----------------------------------------------------------------------------
+python viz.py --config configs/default.txt --data_dir {sequence_directory} --foreground_mask_path {mask_file_path}
+
+python viz.py --config configs/default.txt --data_dir /home/ekko/datasets/Ekko/pulling --ckpt_path /home/ekko/github/INN/omnimotion_orginal/out/default_pulling/model_010000.pth 
+
+ python viz.py --config configs/default.txt --data_dir /home/ekko/datasets/Ekko/pulling --ckpt_path /home/ekko/github/INN/omnimotion_orginal/out/default_pulling/model_010000.pth --foreground_mask_path /home/ekko/datasets/Ekko/pulling/masks/frame-mask-000000.png
+
+# -------------------------------------------------------------------------------
 ```
 
 
