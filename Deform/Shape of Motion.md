@@ -12,6 +12,11 @@ python run_training.py \
   data:iphone \
   --data.data-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/backpack
   
+python run_training.py --work-dir ./outdir data:custom --data.seq-name pulling --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues
+
+python run_rendering.py \
+    --work-dir ./outdir \
+
 PYTHONPATH='.' python scripts/evaluate_iphone.py \
   --data_dir </path/to/paper-windmill/> \
   --result_dir <OUTPUT_DIR> \
