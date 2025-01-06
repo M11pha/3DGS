@@ -10,6 +10,7 @@ stat /usr/local/cuda # 查看当前的软链接
 sudo rm -rf /usr/local/cuda
 sudo ln -s /usr/local/cuda-11.6 /usr/local/cuda
 sudo ln -s /usr/local/cuda-11.8 /usr/local/cuda
+sudo ln -s /usr/local/cuda-12.2 /usr/local/cuda
 
 pip install /home/gouhao/Github/ProPainter/download/torchvision-0.16.0+cu118-cp38-cp38-linux_x86_64.whl
 git clone --resursive 
