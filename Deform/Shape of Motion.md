@@ -34,6 +34,29 @@ python mask_app.py --root_dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pull
 python process_custom.py --img-dirs /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues/images/** --gpus 0
 ```
 
+```bash
+# iPhone Dataset 这个可以用
+python run_video.py --work-dir ./output data:iphone  --data.data-dir  /home/ekko/datasets/Ekko_2025/Shape_of_Motion/backpack trajectory:fixed --trajectory.num-frames 63 time:replay
+
+python run_video.py --work-dir ./output data:iphone  --data.data-dir  /home/ekko/datasets/Ekko_2025/Shape_of_Motion/backpack trajectory:fixed time:replay
+
+
+# EndoNeRF
+python run_video.py --work-dir ./outdir1 data:custom  --data.seq-name pulling --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues trajectory:fixed --trajectory.num-frames 240 time:replay
+
+python run_video.py --work-dir ./outdir1 data:custom  --data.seq-name pulling --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues trajectory:arc time:replay
+
+python run_video.py --work-dir ./outdir1 data:custom  --data.seq-name pulling --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues trajectory:arc time:replay
+
+python run_video.py --work-dir ./outdir1 data:custom  --data.seq-name pulling --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues trajectory:arc time:replay
+
+python run_video.py --work-dir ./outdir1 data:custom  --data.seq-name pulling --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues trajectory:wander time:replay
+
+ffmpeg -i video.mp4 -vf "fps=30" output_image/%04d.png
+ffmpeg -i video.mp4 -t 3 -s 640x512 -r 30 %5d.png -start_number 0  
+
+```
+
 
 
 ## Paper

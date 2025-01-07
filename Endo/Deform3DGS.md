@@ -12,6 +12,7 @@ $ python metrics.py --model_path output/endonerf_pro/pulling_fdm -p test
 $ python train.py -s data/cutting_tissues_twice --expname endonerf/cutting_fdm --configs arguments/endonerf/default.py 
 $ python render.py --model_path output/endonerf_pro_inpainting/cutting_fdm   --reconstruct_test --configs arguments/endonerf/default.py
 $ python metrics.py --model_path output/endonerf_pro/cutting_fdm -p test
+python metrics.py --model_path output/endonerf_pro/pulling_fdm -p test
 
 # StereoMIS
 $ python train.py -s /home/ekko/datasets/Endo_StereoMIS/Dynamic/stereo_P1_14760_15420 --expname StereoMIS/stereo_P1_14760_15420 --configs arguments/endonerf/default.py 
