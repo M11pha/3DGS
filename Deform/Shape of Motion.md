@@ -12,7 +12,7 @@ python run_training.py \
   data:iphone \
   --data.data-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/backpack
   
-python run_training.py --work-dir ./outdir data:custom --data.seq-name pulling --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues
+python run_training.py --work-dir ./puling data:custom --data.seq-name pulling --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues
 
 python run_rendering.py \
     --work-dir ./outdir \
@@ -50,7 +50,7 @@ python run_video.py --work-dir ./outdir1 data:custom  --data.seq-name pulling --
 
 python run_video.py --work-dir ./outdir1 data:custom  --data.seq-name pulling --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues trajectory:arc time:replay
 
-python run_video.py --work-dir ./outdir1 data:custom  --data.seq-name pulling --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues trajectory:wander time:replay
+python run_video.py --work-dir ./puling data:custom  --data.seq-name pulling --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues trajectory:arc time:replay
 
 ffmpeg -i video.mp4 -vf "fps=30" output_image/%04d.png
 ffmpeg -i video.mp4 -t 3 -s 640x512 -r 30 %5d.png -start_number 0  
