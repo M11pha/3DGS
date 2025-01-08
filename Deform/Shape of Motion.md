@@ -33,9 +33,9 @@ python mask_app.py --root_dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pull
 
 python process_custom.py --img-dirs /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling/images/ --gpus 0
 
-python run_training.py --work-dir ./pulling_2025 data:custom --data.seq-name pulling --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling
+python run_training.py --work-dir ./pulling_2025_2 data:custom --data.seq-name pulling --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling
 
-python run_video.py --work-dir ./pulling_2025 data:custom  --data.seq-name pulling --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues trajectory:arc time:replay
+python run_video.py --work-dir ./pulling_2025_2 data:custom  --data.seq-name pulling --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues trajectory:arc time:replay
 
 ffmpeg -i video.mp4 -t 3 -s 640x512 -r 30 %5d.png -start_number 0 
 ```
