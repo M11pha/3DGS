@@ -4,19 +4,33 @@
 mri_vol2vol  --mov template_brain.nii.gz --o output.mgz --voxsize 1.6
 
 
-python train.py -encoder_name SRResNet \
+python train.py -encoder_name ResCNN \
                 -decoder_depth 8	\
                 -decoder_width 256 \
                 -feature_dim 256 \
-                -hr_data_train [hr_data_train] \
-                -hr_data_val [hr_data_val] \
-                -lr [lr] \
-                -lr_decay_epoch [lr_decay_epoch] \
-                -epoch [epoch] \
-                -summary_epoch [summary_epoch] \
-                -bs [bs] \
-                -ss [ss] \
-                -gpu [gpu]
+                -hr_data_train /home/ekko/datasets/MRI/data/hr_train \
+                -hr_data_val /home/ekko/datasets/MRI/data/hr_val \
+                -lr 1e-4 \
+                -lr_decay_epoch 200 \
+                -epoch 100 \
+                -summary_epoch 100 \
+                -bs 15 \
+                -ss 8000 \
+                -gpu 0
+                
+python train.py -encoder_name ResCNN \
+                -decoder_depth 8	\
+                -decoder_width 256 \
+                -feature_dim 256 \
+                -hr_data_train /home/ekko/datasets/MRI/data/fetal_data/train \
+                -hr_data_val /home/ekko/datasets/MRI/data/fetal_data/val \
+                -lr 1e-4 \
+                -lr_decay_epoch 200 \
+                -epoch 100 \
+                -summary_epoch 100 \
+                -bs 1 \
+                -ss 8000 \
+                -gpu 0
                 
 encoder_name是编码器网络的类型，包括RDN、ResCNN或SRResNet。
 decoder_depth是解码器网络的深度（默认值=8）。
