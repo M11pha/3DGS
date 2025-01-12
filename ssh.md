@@ -15,6 +15,8 @@ scp -P 20283 -r /home/ekko/datasets/MRI/dataverse_files_test  root@i-2.gpushare.
 ufydUMQkyvBfHDDYgUVEvyfUXbzZXxwf
 
 scp -P 20283 -r /home/ekko/github/MRI/svr  root@i-2.gpushare.com:/root/Github
+scp -P 16743 /home/ekko/datasets/MRI/data/data.zip  root@region-46.seetacloud.com:/root/autodl-tmp/HCP-1200
+ssh -p 16743 root@region-46.seetacloud.com
 ```
 
 
