@@ -6,11 +6,17 @@
 # 默认直接在output文件夹下，train的--expname不用带output
 # EndoNeRF
 $ python train.py -s data/pulling_soft_tissues --expname endonerf/pulling --configs arguments/endonerf/default.py
-$ python render.py --model_path output/endonerf/pulling  --skip_train --reconstruct_test --configs arguments/endonerf/default.py
-$ python metrics.py --model_path output/endonerf_pro/pulling_fdm -p test
+
+$ python train.py -s /home/ekko/datasets/EndoNeRF_PRO/pulling_deblur --expname deblur/pulling --configs arguments/endonerf/default.py
+
+$ python render.py --model_path output/deblur/pulling  --skip_train --reconstruct_test --configs arguments/endonerf/default.py
+
+$ python metrics.py --model_path output/deblur/pulling -p test
 
 $ python train.py -s data/cutting_tissues_twice --expname endonerf/cutting_fdm --configs arguments/endonerf/default.py 
+
 $ python render.py --model_path output/endonerf_pro_inpainting/cutting_fdm   --reconstruct_test --configs arguments/endonerf/default.py
+
 $ python metrics.py --model_path output/endonerf_pro/cutting_fdm -p test
 python metrics.py --model_path output/endonerf_pro/pulling_fdm -p test
 
