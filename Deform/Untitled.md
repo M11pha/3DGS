@@ -25,6 +25,8 @@ pip install lib_render/diff-gaussian-rasterization-alphadep-add3
 pip install lib_render/diff-gaussian-rasterization-alphadep
 pip install lib_render/gof-diff-gaussian-rasterization
 
+python run_compute_metrics_som.py --result_dir /home/ekko/github/Deform3DGS/output/endonerf_pro/pulling_fdm/test/ours_3000/renders_de --gt_dir /home/ekko/github/Deform3DGS/output/endonerf_pro/pulling_fdm/test/ours_3000/gt --masks_dir /home/ekko/github/Deform3DGS/output/endonerf_pro/pulling_fdm/test/ours_3000/masks
 
+/home/ekko/github/Deform3DGS/output/endonerf_pro/pulling_fdm/test/ours_3000
 ```
 

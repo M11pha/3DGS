@@ -31,7 +31,7 @@ PYTHONPATH='.' python scripts/evaluate_iphone.py \
 ```bash
 python mask_app.py --root_dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues
 
-python process_custom.py --img-dirs /home/ekko/datasets/Ekko_2025/Shape_of_Motion/stereo/images/ --gpus 0
+python process_custom.py --img-dirs /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_test/images/ --gpus 0
 
 python run_training.py --work-dir ./pulling_1_12_2 data:custom --data.seq-name pulling --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues
 
