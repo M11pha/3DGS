@@ -30,3 +30,7 @@ python run_compute_metrics_som.py --result_dir /home/ekko/github/Deform3DGS/outp
 /home/ekko/github/Deform3DGS/output/endonerf_pro/pulling_fdm/test/ours_3000
 ```
 
+```bash
+python demo.py --model=models/raft-things.pth --path=./data/pulling_left_to_right
+```
+

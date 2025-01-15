@@ -31,13 +31,13 @@ PYTHONPATH='.' python scripts/evaluate_iphone.py \
 ```bash
 python mask_app.py --root_dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues
 
-python process_custom.py --img-dirs /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_test/images/ --gpus 0
+python process_custom.py --img-dirs /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting/images/ --gpus 0
 
-python run_training.py --work-dir ./pulling_1_12_2 data:custom --data.seq-name pulling --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues
+python run_training.py --work-dir ./pulling_1_15 data:custom --data.seq-name pulling --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_1_15
 
 python run_training.py --work-dir ./stereo data:custom --data.seq-name stereo --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/stereo
 
-python run_video.py --work-dir ./pulling_1_12_2 data:custom  --data.seq-name pulling --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling trajectory:arc time:replay
+python run_video.py --work-dir ./pulling_1_15 data:custom  --data.seq-name pulling --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_1_15 trajectory:arc time:replay
 
 ffmpeg -i video.mp4 -t 3 -s 640x512 -r 30 %5d.png -start_number 0 
 ```
