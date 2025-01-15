@@ -1,10 +1,10 @@
-+ 更改视角 Deform3DGS/scene/endo_loder.py
++ ==更改视角== Deform3DGS/scene/endo_loder.py 217行左右
 
   ```bash
   # poses
   R, T = self.image_poses[idx]
   
-  # here -2时位移为
+  # here -2时位移为4
   # T[0] -= 2
   
   # fov
