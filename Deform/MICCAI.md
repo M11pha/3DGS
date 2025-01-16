@@ -13,3 +13,13 @@
   ```
 
   
+
++ ==计算指标==
+
+  ```bash
+  python run_compute_metrics_som.py --result_dir ./data/renders --gt_dir ./data/gt --masks_dir ./data/masks
+  
+  
+  ```
+
+  
