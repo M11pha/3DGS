@@ -29,6 +29,12 @@ PYTHONPATH='.' python scripts/evaluate_iphone.py \
 ```
 
 ```bash
+python run_training.py --work-dir ./cutting data:custom --data.seq-name cutting --data.root-dir /root/Github/datasets/cutting
+```
+
+
+
+```bash
 python mask_app.py --root_dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues
 
 python process_custom.py --img-dirs /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_ori/images/ --gpus 0

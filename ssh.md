@@ -10,13 +10,15 @@ v100 Internal IP Address: 10.249.67.70
 浏览器访问39.100.92.125:8100查询v100内网地址
 浏览器访问39.100.92.125:8090查询4090内网地址
 
-scp -P 20283 -r /home/ekko/datasets/MRI/dataverse_files_test  root@i-2.gpushare.com:/root/Github
+scp -P 10878 -r //home/ekko/datasets/Ekko_2025/Shape_of_Motion/gsplat  root@i-1.gpushare.com:/root/Github/download
 
-ufydUMQkyvBfHDDYgUVEvyfUXbzZXxwf
+scp -P 10878  /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting.zip  root@i-1.gpushare.com:/root/Github/datasets
 
-scp -P 20283 -r /home/ekko/github/MRI/svr  root@i-2.gpushare.com:/root/Github
+ssh -p 10878 root@i-1.gpushare.com
+# 发送文件到服务器
+scp -P 10878 -r /home/ekko/github/deformation/ssh  root@i-1.gpushare.com:/root/Github
 scp -P 16743 /home/ekko/datasets/MRI/data/data.zip  root@region-46.seetacloud.com:/root/autodl-tmp/HCP-1200
-ssh -p 16743 root@region-46.seetacloud.com
+/home/ekko/datasets/MRI
 ```
 
 

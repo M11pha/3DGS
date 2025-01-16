@@ -14,7 +14,7 @@ python train.py -encoder_name ResCNN \
                 -lr_decay_epoch 200 \
                 -epoch 100 \
                 -summary_epoch 100 \
-                -bs 15 \
+                -bs 1 \
                 -ss 8000 \
                 -gpu 0
                 
