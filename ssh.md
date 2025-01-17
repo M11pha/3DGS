@@ -10,9 +10,18 @@ v100 Internal IP Address: 10.249.67.70
 浏览器访问39.100.92.125:8100查询v100内网地址
 浏览器访问39.100.92.125:8090查询4090内网地址
 
+
+
+ssh -p 54310 root@i-2.gpushare.com
+9FPDQxf7ttZRX565Pf7UZgHZSQ9UgQxt
+
+scp -P 54310  -r /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting.zip  root@i-2.gpushare.com:/hy-tmp
+
+scp -P 54310  /home/ekko/datasets/MRI/torch-2.2.0+cu121-cp312-cp312-linux_x86_64.whl  root@i-2.gpushare.com:/root/Github/datasets
+------------------------------------------------------------------------------------
 scp -P 10878 -r //home/ekko/datasets/Ekko_2025/Shape_of_Motion/gsplat  root@i-1.gpushare.com:/root/Github/download
 
-scp -P 10878  /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting.zip  root@i-1.gpushare.com:/root/Github/datasets
+scp -P 56752  /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting.zip  root@i-2.gpushare.com:/root/Github/datasets
 
 ssh -p 10878 root@i-1.gpushare.com
 # 发送文件到服务器

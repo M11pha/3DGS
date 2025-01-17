@@ -13,21 +13,33 @@ python train.py -encoder_name ResCNN \
                 -lr 1e-4 \
                 -lr_decay_epoch 200 \
                 -epoch 100 \
-                -summary_epoch 100 \
+                -summary_epoch 25 \
                 -bs 1 \
                 -ss 8000 \
                 -gpu 0
-                
-python train.py -encoder_name ResCNN \
+      
+python train.py -encoder_name Unet_interpolation \
                 -decoder_depth 8	\
                 -decoder_width 256 \
-                -feature_dim 256 \
-                -hr_data_train /home/ekko/datasets/MRI/data/fetal_data/train \
-                -hr_data_val /home/ekko/datasets/MRI/data/fetal_data/val \
-                -lr 1e-4 \
+                -feature_dim 128 \
+                -hr_data_train /home/ekko/datasets/MRI/data/hr_train \
+                -hr_data_val /home/ekko/datasets/MRI/data/hr_val \
                 -lr_decay_epoch 200 \
                 -epoch 100 \
-                -summary_epoch 100 \
+                -summary_epoch 25 \
+                -bs 15 \
+                -ss 8000 \
+                -gpu 0
+      
+python train.py -encoder_name Unet_interpolation \
+                -decoder_depth 8	\
+                -decoder_width 256 \
+                -feature_dim 128 \
+                -hr_data_train /home/ekko/datasets/MRI/data/fetal_data/train \
+                -hr_data_val /home/ekko/datasets/MRI/data/fetal_data/val \
+                -lr_decay_epoch 200 \
+                -epoch 5 \
+                -summary_epoch 5 \
                 -bs 1 \
                 -ss 8000 \
                 -gpu 0
@@ -46,12 +58,22 @@ bs是 LR-HR 补丁对的数量，即公式 3 中的N （默认值=15）。
 ss是采样体素坐标的数量，即公式3中的K （默认值=8000）。
 gpu是GPU的数量。
 
-python test.py -input_path /home/ekko/datasets/MRI/data/hr_val \
-               -output_path /home/ekko/github/MRI/ArSSR/output \
-               -encoder  ResCNN \
-               -pre_trained_model ./pre_trained_models/ArSSR_ResCNN.pkl \
-               -scale 4 \
-               -is_gpu 1 \
-               -gpu 0
+python test.py -input_path [input_path] \
+               -output_path [output_path] \
+               -encoder [RDN, ResCNN, or SRResNet] \
+               -pre_trained_model [pre_trained_model]
+               -scale [scale] \
+               -is_gpu [is_gpu] \
+               -gpu [gpu]
+               
+               ./pre_trained_models/ArSSR_ResCNN.pkl \
+               
+python test.py -input_path /home/ekko/datasets/MRI/data/hr_val_5 \
+               -output_path ./output \
+               -pre_trained_model ./model/model_param_50.pkl  
+         
+           
+               
+               
 ```
 
