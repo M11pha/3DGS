@@ -38,7 +38,16 @@ python run_training.py --work-dir ./cutting data:custom --data.seq-name cutting 
 # 服务器
 python run_training.py --work-dir ./cutting data:custom --data.seq-name cutting --data.root-dir /hy-tmp/cutting
 #----------------------------------------------------------------------------------
+# Pulling
+python run_training.py --work-dir ./outputs/pulling data:custom --data.seq-name pulling --data.root-dir /home/ekko/datasets/Shapeofmotion/Pulling_Train/pulling_ori
 
+python run_video.py --work-dir ./outputs/pulling data:custom  --data.seq-name pulling --data.root-dir /home/ekko/datasets/Shapeofmotion/Pulling_Train/pulling_ori trajectory:arc time:replay
+
+zip -r /media/ekko/T9/SOM/env.zip ./som
+
+# Cutting
+python run_training.py --work-dir ./outputs/cutting data:custom --data.seq-name cutting --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting
+#----------------------------------------------------------------------------------
 python mask_app.py --root_dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues
 
 python process_custom.py --img-dirs /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_ori/images/ --gpus 0
