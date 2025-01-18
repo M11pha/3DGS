@@ -10,7 +10,7 @@ v100 Internal IP Address: 10.249.67.70
 浏览器访问39.100.92.125:8100查询v100内网地址
 浏览器访问39.100.92.125:8090查询4090内网地址
 
-
+scp -P 2211 ./cutting.zip gouhao@39.100.92.125:/home/gouhao/Github/Downloads
 
 ssh -p 54310 root@i-2.gpushare.com
 9FPDQxf7ttZRX565Pf7UZgHZSQ9UgQxt
