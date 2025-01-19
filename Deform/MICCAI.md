@@ -17,9 +17,18 @@
 + ==计算指标==
 
   ```bash
-  python run_compute_metrics_som.py --result_dir ./data/renders --gt_dir ./data/gt --masks_dir ./data/masks
+  python run_compute_metrics_som.py --result_dir ./data/cutting/renders --gt_dir ./data/cutting/gt --masks_dir ./data/cutting/masks
   
   
+  ```
+
+
++ ==重要改动==
+
+  ```bash
+  casual_dataset.py Line 507
+  F.normalize(original_up.cross(target_up), dim=-1) 
+  F.normalize(original_up.cross(target_up, dim=-1), dim=-1) 
   ```
 
   

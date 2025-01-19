@@ -29,14 +29,32 @@ PYTHONPATH='.' python scripts/evaluate_iphone.py \
 ```
 
 ```bash
-python run_training.py --work-dir ./cutting data:custom --data.seq-name cutting --data.root-dir /root/Github/datasets/cutting
+# LOCAL Cutting
+python process_custom.py --img-dirs /home/ekko/datasets/Ekko_2025/Shape_of_Motion/test/pulling_camera/images --gpus 0
+/home/ekko/datasets/Ekko_2025/Shape_of_Motion/test/pulling_camera/images
+/home/ekko/datasets/Ekko_2025/Shape_of_Motion/test/camera/images
+
+python run_training.py --work-dir ./outputs/cutting-part-test data:custom --data.seq-name cutting --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting_part
+
+python run_video.py --work-dir /home/ekko/Documents/cutting data:custom  --data.seq-name cutting --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting_4 trajectory:arc time:replay
+
+
+python run_training.py --work-dir ./cutting data:custom --data.seq-name cutting --data.root-dir /hy-tmp/cutting
+
+python run_video.py --work-dir /cutting-4 data:custom  --data.seq-name cutting --data.root-dir /hy-tmp/cutting trajectory:arc time:replay
+
+python run_training.py --work-dir ./output/cutting-4 data:custom --data.seq-name cutting --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting_4
+/home/ekko/datasets/Ekko_2025/Shape_of_Motion/test/cutting_test-8
+/home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting_4
 ```
 
 
 
 ```bash
 # 服务器
-python run_training.py --work-dir ./cutting data:custom --data.seq-name cutting --data.root-dir /hy-tmp/cutting
+CUDA_VISIBLE_DEVICES=0 python run_training.py --work-dir ./output/cutting_119 data:custom --data.seq-name cutting --data.root-dir /home/gouhao/Github/Downloads/cutting
+
+python run_video.py --work-dir ./output/cutting_119 data:custom  --data.seq-name cutting --data.root-dir /hy-tmp/cutting trajectory:arc time:replay
 #----------------------------------------------------------------------------------
 # Pulling
 python run_training.py --work-dir ./outputs/pulling data:custom --data.seq-name pulling --data.root-dir /home/ekko/datasets/Shapeofmotion/Pulling_Train/pulling_ori
@@ -46,11 +64,16 @@ python run_video.py --work-dir ./outputs/pulling data:custom  --data.seq-name pu
 zip -r /media/ekko/T9/SOM/env.zip ./som
 
 # Cutting
-python run_training.py --work-dir ./outputs/cutting data:custom --data.seq-name cutting --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting
+python run_training.py --work-dir ./outputs/cutting_full data:custom --data.seq-name cutting --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting_part --data.is-train True
+
+python run_val.py --work-dir ./outputs/cutting_full --model 1200 data:custom  --data.seq-name cutting --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting_part --data.is-train False 
+
+
+python run_video.py --work-dir ./calibration/cutting-part data:custom  --data.seq-name cutting --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting_part trajectory:arc time:replay
 #----------------------------------------------------------------------------------
 python mask_app.py --root_dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues
 
-python process_custom.py --img-dirs /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_ori/images/ --gpus 0
+python process_custom.py --img-dirs /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting_part/images --gpus 0
 
 python run_training.py --work-dir ./cutting data:custom --data.seq-name cutting --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting
 

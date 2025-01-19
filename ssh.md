@@ -12,10 +12,8 @@ v100 Internal IP Address: 10.249.67.70
 
 scp -P 2211 ./shape-of-motion.zip gouhao@39.100.92.125:/home/gouhao/Github/Downloads
 
-ssh -p 54310 root@i-2.gpushare.com
-9FPDQxf7ttZRX565Pf7UZgHZSQ9UgQxt
-
-scp -P 54310  -r /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting.zip  root@i-2.gpushare.com:/hy-tmp
+ssh -p 25790 root@i-1.gpushare.com
+scp -P 25790  -r /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting.zip  root@i-1.gpushare.com:/hy-tmp
 
 scp -P 54310  /home/ekko/datasets/MRI/torch-2.2.0+cu121-cp312-cp312-linux_x86_64.whl  root@i-2.gpushare.com:/root/Github/datasets
 ------------------------------------------------------------------------------------
@@ -28,6 +26,14 @@ ssh -p 10878 root@i-1.gpushare.com
 scp -P 10878 -r /home/ekko/github/deformation/ssh  root@i-1.gpushare.com:/root/Github
 scp -P 16743 /home/ekko/datasets/MRI/data/data.zip  root@region-46.seetacloud.com:/root/autodl-tmp/HCP-1200
 /home/ekko/datasets/MRI
+```
+
+```bash
+# 恒源云
+ssh -p 25790 root@i-1.gpushare.com
+4eUv47eGGyUmhXGQuqep9XCmdcCqUxv7
+
+scp -P 25790  -r /home/ekko/github/deformation/ssh.zip  root@i-1.gpushare.com:/root/github
 ```
 
 
