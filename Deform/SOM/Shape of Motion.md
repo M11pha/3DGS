@@ -67,7 +67,7 @@ zip -r /media/ekko/T9/SOM/env.zip ./som
 <<<<<<< HEAD
 python run_training.py --work-dir ./outputs/cutting_true data:custom --data.seq-name cutting --data.root-dir /hy-tmp/cutting --data.is-train True
 
-python run_val.py --work-dir ./outputs/cutting_true --model 3000 data:custom  --data.seq-name cutting --data.root-dir /hy-tmp/cutting --data.is-train False 
+python run_val.py --work-dir /home/ekko/datasets/Ekko_2025/cutting_true --model 5000 data:custom --data.seq-name cutting --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting_4 --data.is-train False
 
 python run_val.py --work-dir ./outputs/cutting_true --model 10000 data:custom  --data.seq-name cutting --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting_4 --data.is-train False 
 
@@ -75,7 +75,6 @@ python run_val.py --work-dir ./outputs/cutting_true --model 10000 data:custom  -
 python run_training.py --work-dir ./outputs/cutting_full data:custom --data.seq-name cutting --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting_part --data.is-train True
 
 python run_training.py --work-dir ./outputs/cutting_full_ori_hyper data:custom --data.seq-name cutting --data.root-dir /hy-tmp/cutting --data.is-train True
->>>>>>> f0a451970b20c10bb779fff1734e2967e5311761
 
 python run_val.py --work-dir ./outputs/cutting_full --model 1200 data:custom  --data.seq-name cutting --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting_part --data.is-train False 
 
