@@ -10,10 +10,11 @@ v100 Internal IP Address: 10.249.67.70
 浏览器访问39.100.92.125:8100查询v100内网地址
 浏览器访问39.100.92.125:8090查询4090内网地址
 
-scp -P 2211 ./shape-of-motion.zip gouhao@39.100.92.125:/home/gouhao/Github/Downloads
+scp -P 2211 ./Deblur4DGS-ssh.zip gouhao@39.100.92.125:/home/gouhao/Github/Downloads
+
 
 ssh -p 25790 root@i-1.gpushare.com
-scp -P 25790  -r /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting.zip  root@i-1.gpushare.com:/hy-tmp
+scp -P 25790  -r /home/ekko/datasets/Github/Deblur4DGS-ssh.zip  root@i-1.gpushare.com:/root
 
 scp -P 54310  /home/ekko/datasets/MRI/torch-2.2.0+cu121-cp312-cp312-linux_x86_64.whl  root@i-2.gpushare.com:/root/Github/datasets
 ------------------------------------------------------------------------------------

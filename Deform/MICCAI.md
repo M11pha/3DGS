@@ -17,9 +17,9 @@
 + ==计算指标==
 
   ```bash
-  python run_compute_metrics_som.py --result_dir ./data/cutting/renders --gt_dir ./data/cutting/gt --masks_dir ./data/cutting/masks
+  python run_compute_metrics_som.py --result_dir ./data/cutting/renders --gt_dir ./data/cutting/gts --masks_dir ./data/cutting/masks
   
-  
+  python run_compute_metrics_som.py --result_dir ./data/pulling/renders --gt_dir ./data/pulling/gts --masks_dir ./data/pulling/masks
   ```
 
 
