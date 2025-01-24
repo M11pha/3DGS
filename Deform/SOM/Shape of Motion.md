@@ -56,7 +56,7 @@ python run_training.py --work-dir ./output/cutting-4 data:custom --data.seq-name
 
 ```bash
 # HYY
-python run_training.py --work-dir ./outputs/cutting_30 data:custom --data.seq-name cutting --data.root-dir /hy-tmp/cutting --data.is-train True
+python run_training.py --work-dir ./outputs/cutting_40 data:custom --data.seq-name cutting --data.root-dir /hy-tmp/cutting --data.is-train True
 
 python run_val.py --work-dir ./outputs/cutting_30 --model 4000 data:custom --data.seq-name cutting --data.root-dir /hy-tmp/cutting --data.is-train False
 ```
@@ -67,7 +67,7 @@ python run_val.py --work-dir ./outputs/cutting_30 --model 4000 data:custom --dat
 
 ```bash
 # HDU
-CUDA_VISIBLE_DEVICES=0 python run_training.py --work-dir ./output/pulling_50 data:custom --data.seq-name pulling --data.root-dir /home/gouhao/Github/Downloads/pulling_ori --data.is-train True
+CUDA_VISIBLE_DEVICES=0 python run_training.py --work-dir ./output/pulling_40 data:custom --data.seq-name pulling --data.root-dir /home/gouhao/Github/Downloads/pulling_ori --data.is-train True
 
 CUDA_VISIBLE_DEVICES=0 python run_val.py --work-dir ./output/pulling_50 --model 4000 data:custom --data.seq-name pulling --data.root-dir /home/gouhao/Github/Downloads/pulling_ori --data.is-train False
 # HYY
