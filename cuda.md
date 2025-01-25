@@ -1,6 +1,9 @@
 # CUDA
 
 ```bash
+conda create --prefix=/home/ekko/datasets/anaconda3/sam2 python=3.10 
+conda config --append envs_dirs /home/ekko/datasets/anaconda3/
+
 pip cache purge # 清除pip缓存
 # cuDNN
 tar -zxvf cudnn-linux-x86_64-8.9.7.29_cuda11-archive.tar.xz

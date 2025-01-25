@@ -40,9 +40,13 @@ scp -P 25790  -r /home/ekko/github/deformation/ssh.zip  root@i-1.gpushare.com:/r
 
 
 ```bash
-scp -P 22 -r /home/ekko/datasets/MRI/dataverse_files_test gouhao@10.1.115.28:/home/gouhao/Github/EndoGS/endo_datasets/EndoNeRF_sample_dataset/cutting_tissues_twice # 从本地上传文件夹至服务器
+scp -P 2211 -r /home/ekko/datasets/Github/Deblur4DGS-ssh/data/pulling_full/masks gouhao@39.100.92.125:/home/gouhao/Github/Downloads/Deblur4DGS-ssh/data/pulling_full # 从本地上传文件夹至服务器
 scp -P 220 C:\Users\61674\.ssh\id_windows_gh.pub gouhao@47.98.186.253:.ssh
 
-scp -P 221 -r gouhao@39.100.92.125:/home/gouhao/Github/DNGaussian/output/llff/flower/render/ours_6000 E:\Github # 从服务器下载文件夹至本地 
+scp -P 2211 -r gouhao@39.100.92.125:/home/gouhao/Github/shape-of-motion/output/pulling_60 /home/ekko/datasets/Shapeofmotion/Pulling # 从服务器下载文件夹至本地 
+
+ssh -p 25790 root@i-1.gpushare.com
+scp -P 25790 -r root@i-1.gpushare.com:/root/ssh/outputs/cutting_30.zip /home/ekko/datasets/Shapeofmotion/Cutting # 从服务器下载文件夹至本地 
+/home/gouhao/Github/shape-of-motion/output/pulling_60
 ```
 

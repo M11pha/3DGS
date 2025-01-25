@@ -56,9 +56,14 @@ python run_training.py --work-dir ./output/cutting-4 data:custom --data.seq-name
 
 ```bash
 # HYY
-python run_training.py --work-dir ./outputs/cutting_50 data:custom --data.seq-name cutting --data.root-dir /hy-tmp/cutting --data.is-train True
+python run_training.py --work-dir ./outputs/cutting_40_full data:custom --data.seq-name cutting --data.root-dir /hy-tmp/cutting --data.is-train True
 
 python run_val.py --work-dir ./outputs/cutting_40 --model 10000 data:custom --data.seq-name cutting --data.root-dir /hy-tmp/cutting --data.is-train False
+
+# LOCAL
+python run_val.py --work-dir /home/ekko/datasets/Shapeofmotion/Cutting/cutting_30 --model 9000 data:custom --data.seq-name cutting --data.root-dir /home/ekko/datasets/Shapeofmotion/Cutting/cutting_dataset --data.is-train False
+
+
 ```
 
 
@@ -67,16 +72,19 @@ python run_val.py --work-dir ./outputs/cutting_40 --model 10000 data:custom --da
 
 ```bash
 # HDU
-CUDA_VISIBLE_DEVICES=0 python run_training.py --work-dir ./output/pulling_40 data:custom --data.seq-name pulling --data.root-dir /home/gouhao/Github/Downloads/pulling_ori --data.is-train True
+CUDA_VISIBLE_DEVICES=0 python run_training.py --work-dir ./output/pulling_60_full data:custom --data.seq-name pulling --data.root-dir /home/gouhao/Github/Downloads/pulling_ori --data.is-train True
 
-CUDA_VISIBLE_DEVICES=0 python run_val.py --work-dir ./output/pulling_40 --model 4000 data:custom --data.seq-name pulling --data.root-dir /home/gouhao/Github/Downloads/pulling_ori --data.is-train False
+CUDA_VISIBLE_DEVICES=0 python run_val.py --work-dir ./output/pulling_60_full --model 4000 data:custom --data.seq-name pulling --data.root-dir /home/gouhao/Github/Downloads/pulling_ori --data.is-train False
 # HYY
 python run_training.py --work-dir ./outputs/pulling_true data:custom --data.seq-name pulling --data.root-dir /hy-tmp/pulling --data.is-train True
 
 python run_val.py --work-dir /home/ekko/datasets/Shapeofmotion/Pulling/pulling_10 --model 4000 data:custom --data.seq-name pulling --data.root-dir /home/ekko/datasets/Shapeofmotion/Pulling/pulling_ori --data.is-train False
 
 /home/ekko/datasets/Shapeofmotion/pulling_ori_hpyer
+# LOCAL
+python run_val.py --work-dir /home/ekko/datasets/Shapeofmotion/Pulling/pulling_60 --model 3200 data:custom --data.seq-name pulling --data.root-dir /home/ekko/datasets/Shapeofmotion/Pulling/pulling_dataset --data.is-train False
 
+python run_val_right_view.py --work-dir /home/ekko/datasets/Shapeofmotion/Pulling/pulling_60 --model 4000 data:custom --data.seq-name pulling --data.root-dir /home/ekko/datasets/Shapeofmotion/Pulling/pulling_dataset --data.is-train False
 ```
 
 

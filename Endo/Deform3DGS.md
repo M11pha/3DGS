@@ -5,6 +5,11 @@
 ```bash
 # 默认直接在output文件夹下，train的--expname不用带output
 # EndoNeRF
+# Cutting Right View----------------------------------------------------------------
+$ python train.py -s data/endonerf/cutting_tissues_twice --expname endonerf/cutting --configs arguments/endonerf/default.py
+
+$ python render.py --model_path output/endonerf/cutting  --skip_train --reconstruct_test --configs arguments/endonerf/default.py
+# ----------------------------------------------------------------------------------
 $ python train.py -s data/pulling_soft_tissues --expname endonerf/pulling --configs arguments/endonerf/default.py
 
 $ python train.py -s /home/ekko/datasets/EndoNeRF_PRO/pulling_deblur --expname deblur/pulling --configs arguments/endonerf/default.py

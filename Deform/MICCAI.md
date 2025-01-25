@@ -17,9 +17,17 @@
 + ==计算指标==
 
   ```bash
+  python run_val.py --work-dir /home/ekko/datasets/Shapeofmotion/Ordinal_depth_loss/shape-of-motion/outputs/pulling_depth_test --model 4000 data:custom --data.seq-name pulling --data.root-dir /home/ekko/datasets/Shapeofmotion/Pulling/pulling_dataset --data.is-train False
+  
   python run_compute_metrics_som.py --result_dir ./data/cutting/renders --gt_dir ./data/cutting/gts --masks_dir ./data/cutting/masks
   
+  python run_compute_metrics_som.py --result_dir ./data/cutting-20/renders --gt_dir ./data/cutting-20/gts --masks_dir ./data/cutting-20/masks
+  
   python run_compute_metrics_som.py --result_dir ./data/pulling/renders --gt_dir ./data/pulling/gts --masks_dir ./data/pulling/masks
+  
+  python run_compute_metrics_som.py --result_dir ./data/pulling_full/renders --gt_dir ./data/pulling_full/gts --masks_dir ./data/pulling_full/masks
+  
+  python run_compute_metrics_som.py --result_dir ./data/pulling_right_view/renders --gt_dir ./data/pulling_right_view/gts --masks_dir ./data/pulling_right_view/masks
   ```
 
 
