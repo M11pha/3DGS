@@ -7,9 +7,23 @@ mri_vol2vol  --mov template_brain.nii.gz --o output.mgz --voxsize 1.6
 python train.py -encoder_name ResCNN \
                 -decoder_depth 8	\
                 -decoder_width 256 \
-                -feature_dim 256 \
+                -feature_dim 128 \
                 -hr_data_train /home/ekko/datasets/MRI/data/hr_train \
                 -hr_data_val /home/ekko/datasets/MRI/data/hr_val \
+                -lr 1e-4 \
+                -lr_decay_epoch 200 \
+                -epoch 100 \
+                -summary_epoch 25 \
+                -bs 15 \
+                -ss 8000 \
+                -gpu 0
+                
+python train.py -encoder_name ResCNN \
+                -decoder_depth 8	\
+                -decoder_width 256 \
+                -feature_dim 128 \
+                -hr_data_train /home/ekko/datasets/MRI/data/fetal_data/train \
+                -hr_data_val /home/ekko/datasets/MRI/data/fetal_data/val \
                 -lr 1e-4 \
                 -lr_decay_epoch 200 \
                 -epoch 100 \
@@ -70,7 +84,7 @@ python test.py -input_path [input_path] \
                
 python test.py -input_path /home/ekko/datasets/MRI/data/hr_val_5 \
                -output_path ./output \
-               -pre_trained_model ./model/model_param_50.pkl  
+               -pre_trained_model ./model/model_param_100.pkl  
          
            
                
