@@ -231,7 +231,40 @@ ffmpeg -i video.mp4 -t 3 -s 640x512 -r 30 %5d.png -start_number 0
 
 #### 3.1 Preliminaries: 3D Gaussian Splatting
 
+我们通过一组全局的3D高斯分布来表示动态场景内容的外观和几何结构，这是一种显式且富有表现力的可微分场景表示，用于高效优化和渲染。我们在规范帧 $t_0 $中定义每个3D高斯分布的参数 $g_0 \equiv (\mu_0, \mathbf{R}_0, s, o, c)$，其中 $\mu_0 \in \mathbb{R}^3$、$\mathbf{R}_0 \in \mathbb{S O}(3)$是规范帧中的3D均值和方向，$s \in \mathbb{R}^3$ 是尺度，$o \in \mathbb{R} $是不透明度，$c \in \mathbb{R}^3$ 是颜色，这些属性在时间上是持久共享的。为了从一个具有世界到相机外参 $\mathbf{E}$和内参 $\mathbf{K}$的相机渲染一组3D高斯分布，3D高斯分布在图像平面中的投影通过2D高斯分布来表示，参数为 $\mu'_0 \in \mathbb{R}^2 $和 $\Sigma'_0 \in \mathbb{R}^{2 \times 2}$，通过仿射近似进行转换。
+$$
+\begin{equation}
+\boldsymbol{\mu}_0^{\prime}(\mathbf{K}, \mathbf{E})=\mathit{\Pi} \left(\mathbf{K E} \boldsymbol{\mu}_0\right) \in \mathbb{R}^2
+\end{equation}
+$$
 
+$$
+\begin{equation}
+\boldsymbol{\Sigma}_0^{\prime}(\mathbf{K}, \mathbf{E})=\mathbf{J}_{\mathbf{K E}} \boldsymbol{\Sigma}_0 \mathbf{J}_{\mathbf{K E}}^{\top} \in \mathbb{R}^{2 \times 2}
+\end{equation}
+$$
+
+其中 $\mathit{\Pi}$是透视投影，$\mathbf{J}_{\mathbf{K}\mathbf{E}}$是在点 $\mu_0 $处，关于 $\mathbf{K}$和 $\mathbf{E}$ 的透视投影雅可比矩阵。然后，2D 高斯分布可以通过 alpha 合成有效地光栅化为 RGB 图像和深度图
+$$
+\begin{equation}
+\hat{\mathbf{I}}(\mathbf{p})=\sum_{i \in H(\mathbf{p})} T_i \alpha_i \mathbf{c}_i, \quad \hat{\mathbf{D}}(\mathbf{p})=\sum_{i \in H(\mathbf{p})} T_i \alpha_i \mathbf{d}_i,
+\end{equation}
+$$
+这里$\begin{equation}
+\alpha_i=o_i \cdot \exp \left(-\frac{1}{2}\left(\mathbf{p}-\boldsymbol{\mu}_0^{\prime}\right)^T \boldsymbol{\Sigma}_0^{\prime}\left(\mathbf{p}-\boldsymbol{\mu}_0^{\prime}\right)\right)
+\end{equation}$,$\begin{equation}
+T_i=\prod_{j=1}^{i-1}\left(1-\alpha_j\right)
+\end{equation}$。 $H(\mathbf{p})$是与从像素$\mathbf{p}$发射的射线相交的高斯集合。这个过程是完全可微的，并且能够直接优化 3D 高斯参数。
 
 #### 3.2 Dynamic Scene Representation
 
+**场景运动参数化**。为了建模一个动态的 3D 场景，我们跟踪 $N$个规范 3D 高斯分布，并随着时间改变它们的位置和方向，采用每帧刚性变换。具体来说，对于一个在时间点 $t$的移动 3D 高斯，其姿态参数$(\boldsymbol{\mu}_t, \mathbf{R}_t)$ 通过刚性变换从规范帧 $t_0$ 到 $t$，通过 $\mathbf{T}_{0 \to t} = \left[ \begin{matrix} \mathbf{R}_{0 \to t} \ \mathbf{t}_{0 \to t} \end{matrix} \right] \in \mathbb{S E}(3) $进行变换:
+$$
+\boldsymbol{\mu}_t = \mathbf{R}_{0 \to t} \mu_0 + t_{0 \to t}, \quad \mathbf{R}_t = \mathbf{R}_{0 \to t} \mathbf{R}_0
+$$
+与其为每个高斯独立建模 3D 运动轨迹，我们定义了一组$B \ll N$ 可学习的基轨迹 $\{ \mathbf{T}^{(b)}_{0 \to t}\}^{B}_{b=1}$，这些轨迹在所有高斯中是全局共享的。然后，在每个时间 $t$，通过每点的基系数 $\mathbf{w}^{(b)}$，将这一全局基轨迹集加权组合，计算得到变换 $\mathbf{T}_{0 \to t}$。
+$$
+\begin{equation}
+\mathbf{T}_{0 \rightarrow t}=\sum_{b=0}^B \mathbf{w}^{(b)} \mathbf{T}_{0 \rightarrow t}^{(b)}
+\end{equation}
+$$
