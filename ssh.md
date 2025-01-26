@@ -46,7 +46,8 @@ scp -P 220 C:\Users\61674\.ssh\id_windows_gh.pub gouhao@47.98.186.253:.ssh
 scp -P 2211 -r gouhao@39.100.92.125:/home/gouhao/Github/shape-of-motion/output/pulling_60 /home/ekko/datasets/Shapeofmotion/Pulling # 从服务器下载文件夹至本地 
 
 ssh -p 25790 root@i-1.gpushare.com
-scp -P 25790 -r root@i-1.gpushare.com:/root/ssh/outputs/cutting_40_ordinal /home/ekko/datasets/Shapeofmotion/Cutting # 从服务器下载文件夹至本地 
-/home/gouhao/Github/shape-of-motion/output/pulling_60
+
+scp -P 25790 -r root@i-1.gpushare.com:/root/ssh/outputs/cutting_40_ordinal_full/checkpoints/model_10000.ckpt /home/ekko/datasets/Shapeofmotion/Cutting # 从服务器下载文件夹至本地 
+
 ```
 

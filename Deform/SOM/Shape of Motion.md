@@ -65,7 +65,7 @@ python run_val.py --work-dir /home/ekko/datasets/Shapeofmotion/Cutting/cutting_3
 
 
 
-python run_val_right_view.py --work-dir /home/ekko/datasets/Shapeofmotion/Cutting/cutting_40_ordinal --model 9000 data:custom --data.seq-name cutting --data.root-dir /home/ekko/datasets/Shapeofmotion/Cutting/cutting_dataset --data.is-train False
+python run_val_right_view.py --work-dir /home/ekko/datasets/Shapeofmotion/Cutting/cutting_40_ordinal_full --model 10000 data:custom --data.seq-name cutting --data.root-dir /home/ekko/datasets/Shapeofmotion/Cutting/cutting_dataset --data.is-train False
 ```
 
 
