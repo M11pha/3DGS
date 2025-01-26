@@ -268,3 +268,16 @@ $$
 \mathbf{T}_{0 \rightarrow t}=\sum_{b=0}^B \mathbf{w}^{(b)} \mathbf{T}_{0 \rightarrow t}^{(b)}
 \end{equation}
 $$
+**光栅化 3D 轨迹**。给定这种表示方法，我们现在描述如何在任意查询帧 $I_t$ 上获取逐像素的 3D 运动轨迹。我们采用类似 Wang 等人 [94] 的方法，将 3D 高斯的运动轨迹光栅化到查询帧 $I_t$ 上。具体来说，对于在时间 $t$ 的查询相机，具有内参 $\mathbf{K}_t$ 和外参 $\mathbf{E}_t$，我们进行光栅化，以获得一个映射 $^{w}{\hat{\mathbf{X}}}_{t \to t'} \in \mathcal{R}^{H \times W \times 3}$，该映射包含了对应于目标时间 $t'$ 的每个像素的表面点的期望 3D 世界坐标
+$$
+\begin{equation}
+{ }^{\mathrm{w}} \hat{\mathbf{X}}_{t \rightarrow t^{\prime}}(\mathbf{p})=\sum_{i \in H(\mathbf{p})} T_i \alpha_i \boldsymbol{\mu}_{i, t^{\prime}},
+\end{equation}
+$$
+其中 $H(\mathbf{p})$ 是在查询时间 $t$ 时与像素 $\mathbf{p}$ 相交的高斯集合。对于给定像素 $\mathbf{p}$，在时间 $t'$ 的 2D 对应位置 $\hat{\mathbf{U}}_{t \to t'}(\mathbf{p}) $和对应的深度值 $\hat{\mathbf{D}}_{t \to t'}(\mathbf{p}) $可以写作：
+$$
+\begin{equation}
+\hat{\mathbf{U}}_{t \rightarrow t^{\prime}}(\mathbf{p})=\mathit{\Pi}\left(\mathbf{K}_{t^{\prime}}{ }^{\mathrm{c}} \hat{\mathbf{X}}_{t \rightarrow t^{\prime}}(\mathbf{p})\right), \hat{\mathbf{D}}_{t \rightarrow t^{\prime}}(\mathbf{p})=\left({ }^{\mathrm{c}} \hat{\mathbf{X}}_{t \rightarrow t^{\prime}}(\mathbf{p})\right)_{[3]}
+\end{equation}
+$$
+其中$^{c}{\hat{\mathbf{X}}}_{t \to t'}(\mathbf{p}) = \mathbf{E}_{t'}{}^{w}{\hat{\mathbf{X}}}_{t \to t'}(\mathbf{p})$,$\mathit{\Pi}$是一个透视投影操作，并且$(\cdot)_{[3]}$是一个向量的第三个元素。
