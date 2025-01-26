@@ -258,7 +258,7 @@ T_i=\prod_{j=1}^{i-1}\left(1-\alpha_j\right)
 
 #### 3.2 Dynamic Scene Representation
 
-**场景运动参数化**。为了建模一个动态的 3D 场景，我们跟踪 $N$个规范 3D 高斯分布，并随着时间改变它们的位置和方向，采用每帧刚性变换。具体来说，对于一个在时间点 $t$的移动 3D 高斯，其姿态参数$(\boldsymbol{\mu}_t, \mathbf{R}_t)$ 通过刚性变换从规范帧 $t_0$ 到 $t$，通过 $\mathbf{T}_{0 \to t} = \left[ \begin{matrix} \mathbf{R}_{0 \to t} \ \mathbf{t}_{0 \to t} \end{matrix} \right] \in \mathbb{S E}(3) $进行变换:
+==**场景运动参数化**== 为了建模一个动态的 3D 场景，我们跟踪 $N$个规范 3D 高斯分布，并随着时间改变它们的位置和方向，采用每帧刚性变换。具体来说，对于一个在时间点 $t$的移动 3D 高斯，其姿态参数$(\boldsymbol{\mu}_t, \mathbf{R}_t)$ 通过刚性变换从规范帧 $t_0$ 到 $t$，通过 $\mathbf{T}_{0 \to t} = \left[ \begin{matrix} \mathbf{R}_{0 \to t} \ \mathbf{t}_{0 \to t} \end{matrix} \right] \in \mathbb{S E}(3) $进行变换:
 $$
 \boldsymbol{\mu}_t = \mathbf{R}_{0 \to t} \mu_0 + t_{0 \to t}, \quad \mathbf{R}_t = \mathbf{R}_{0 \to t} \mathbf{R}_0
 $$
@@ -268,7 +268,7 @@ $$
 \mathbf{T}_{0 \rightarrow t}=\sum_{b=0}^B \mathbf{w}^{(b)} \mathbf{T}_{0 \rightarrow t}^{(b)}
 \end{equation}
 $$
-**光栅化 3D 轨迹**。给定这种表示方法，我们现在描述如何在任意查询帧 $I_t$ 上获取逐像素的 3D 运动轨迹。我们采用类似 Wang 等人 [94] 的方法，将 3D 高斯的运动轨迹光栅化到查询帧 $I_t$ 上。具体来说，对于在时间 $t$ 的查询相机，具有内参 $\mathbf{K}_t$ 和外参 $\mathbf{E}_t$，我们进行光栅化，以获得一个映射 $^{w}{\hat{\mathbf{X}}}_{t \to t'} \in \mathcal{R}^{H \times W \times 3}$，该映射包含了对应于目标时间 $t'$ 的每个像素的表面点的期望 3D 世界坐标
+==**光栅化 3D 轨迹**== 给定这种表示方法，我们现在描述如何在任意查询帧 $I_t$ 上获取逐像素的 3D 运动轨迹。我们采用类似 Wang 等人 [94] 的方法，将 3D 高斯的运动轨迹光栅化到查询帧 $I_t$ 上。具体来说，对于在时间 $t$ 的查询相机，具有内参 $\mathbf{K}_t$ 和外参 $\mathbf{E}_t$，我们进行光栅化，以获得一个映射 $^{w}{\hat{\mathbf{X}}}_{t \to t'} \in \mathcal{R}^{H \times W \times 3}$，该映射包含了对应于目标时间 $t'$ 的每个像素的表面点的期望 3D 世界坐标
 $$
 \begin{equation}
 { }^{\mathrm{w}} \hat{\mathbf{X}}_{t \rightarrow t^{\prime}}(\mathbf{p})=\sum_{i \in H(\mathbf{p})} T_i \alpha_i \boldsymbol{\mu}_{i, t^{\prime}},
@@ -281,3 +281,18 @@ $$
 \end{equation}
 $$
 其中$^{c}{\hat{\mathbf{X}}}_{t \to t'}(\mathbf{p}) = \mathbf{E}_{t'}{}^{w}{\hat{\mathbf{X}}}_{t \to t'}(\mathbf{p})$,$\mathit{\Pi}$是一个透视投影操作，并且$(\cdot)_{[3]}$是一个向量的第三个元素。
+
+#### 3.3 Optimization
+
+我们在优化中使用现成的方法来得到以下估计结果：
+1）每帧运动目标的遮罩$\{\mathbf{M}_t\}$，可通过 Track-Anything [42, 105] 在少量用户点击后轻松获得；
+2）使用最先进的相对深度估计方法 Depth Anything [106] 得到的单目深度图 $\{\mathbf{D}_t\}$；
+3）使用最先进的点跟踪方法 TAPIR [14] 为前景像素获得的长时序 2D 轨迹 $\{\mathbf{U}_{t \to t'}\}$。
+
+我们通过为每帧计算全局的缩放和平移，将相对深度图与度量深度图对齐，并将其用于我们的优化，因为相对深度图通常包含更丰富的细节。随后，我们将通过对齐后的深度图进行“反投影”得到的升维 2D 轨迹视为运动目标的噪声初始 3D 轨迹观测 $\{\mathbf{X}_t\}$。对于场景中静态部分，我们使用标准的静态 3D 高斯分布建模，并通过将它们反投影到对齐后的深度图对应的 3D 空间中来初始化其 3D 位置。静态和动态的高斯分布在优化阶段被共同优化，并共同光栅化生成图像。以下部分将重点介绍动态高斯分布的优化过程。
+
+==**初始化**== 我们首先选择可见最多 3D 轨迹的帧 $t_0$ 作为**规范帧（canonical frame）**，并将该帧中的高斯均值 $\boldsymbol{\mu}_0$ 初始化为从这批初始观测中随机采样的 $N$ 个 3D 轨迹位置。随后，我们对这些噪声 3D 轨迹 $\{\mathbf{X}_t\}$ 的**向量化速度**执行 k-means聚类，并将得到的 $B$ 个聚类用于初始化**运动基**$\{\mathbf{T}_{0 \to t}^{(b)}\}_{b=1}^B$。
+
+具体而言，对于属于第 $b$ 个聚类的轨迹集 $\{\mathbf{X}_t\}_b$，我们在$\tau = 0, \dots, T$ 的所有时刻上，利用**加权 Procrustes 对齐**将点集 $\{\mathbf{X}_0\}_b$ 与$\{\mathbf{X}_\tau\}_b$对齐，从而初始化基转换$\mathbf{T}_{0 \to \tau}^{(b)}$。其中的加权系数由 TAPIR 的**不确定度**和**可见性得分**共同决定。接着，我们令每个高斯对应的权重 $\mathbf{w}^{(b)}$ 按与该高斯在规范帧中对应聚类中心的距离**呈指数衰减**的方式进行初始化。
+
+最后，我们在**时间平滑性约束**下，使用 $\mathcal{l}_1$ 损失来拟合观测到的 3D 轨迹，对 $\boldsymbol{\mu}_0$、$\mathbf{w}^{(b)}$ 以及基函数集合 $\{ \mathbf{T}^{(b)}_{0 \to t}\}^{B}_{b=1}$进行优化。
