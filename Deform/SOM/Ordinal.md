@@ -87,7 +87,7 @@ $$
 •	在某些情况下，帧间某些局部区域的深度顺序确实可能发生变化（例如快速运动或物体被遮挡后又出现），过分强行维护顺序会导致网络难以学习更复杂的场景动态变化。因此对损失也要有一定的设计，比如采用 hinge loss 时设置合适的 margin，或者只对相对静止或运动一致的像素队列应用顺序约束。
 
 ```bash
-python run_training.py --work-dir ./outputs/pulling_depth_test data:custom --data.seq-name pulling --data.root-dir /home/ekko/datasets/Shapeofmotion/Pulling/pulling_dataset --data.is-train True
+python run_training.py --work-dir ./outputs/pulling_60_ordinal data:custom --data.seq-name pulling --data.root-dir /hy-tmp/pulling --data.is-train True
 
 python run_val.py --work-dir /home/ekko/datasets/Shapeofmotion/Ordinal_depth_loss/shape-of-motion/model/pulling_60 --model 4000 data:custom --data.seq-name pulling --data.root-dir /home/ekko/datasets/Shapeofmotion/Pulling/pulling_dataset --data.is-train False
 ```

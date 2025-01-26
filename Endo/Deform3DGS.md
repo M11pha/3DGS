@@ -6,9 +6,14 @@
 # 默认直接在output文件夹下，train的--expname不用带output
 # EndoNeRF
 # Cutting Right View----------------------------------------------------------------
-$ python train.py -s data/endonerf/cutting_tissues_twice --expname endonerf/cutting --configs arguments/endonerf/default.py
+$ python train.py -s data/endonerf_sam/cutting --expname endonerf_sam/cutting --configs arguments/endonerf/default.py
 
-$ python render.py --model_path output/endonerf/cutting  --skip_train --reconstruct_test --configs arguments/endonerf/default.py
+$ python render.py --model_path output/endonerf_sam/cutting  --skip_train --skip_test --reconstruct_video --configs arguments/endonerf/default.py
+# ----------------------------------------------------------------------------------
+# Pulling Right View----------------------------------------------------------------
+$ python train.py -s data/endonerf_sam/pulling --expname endonerf_sam/pulling --configs arguments/endonerf/default.py
+
+$ python render.py --model_path output/endonerf_sam/pulling  --skip_train --skip_test --reconstruct_video --configs arguments/endonerf/default.py
 # ----------------------------------------------------------------------------------
 $ python train.py -s data/pulling_soft_tissues --expname endonerf/pulling --configs arguments/endonerf/default.py
 

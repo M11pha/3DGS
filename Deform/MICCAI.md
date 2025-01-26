@@ -27,7 +27,11 @@
   
   python run_compute_metrics_som.py --result_dir ./data/pulling_full/renders --gt_dir ./data/pulling_full/gts --masks_dir ./data/pulling_full/masks
   
+  python run_compute_metrics_som.py --result_dir ./data/cutting_full/renders --gt_dir ./data/cutting_full/gts --masks_dir ./data/cutting_full/masks
+  
   python run_compute_metrics_som.py --result_dir ./data/pulling_right_view/renders --gt_dir ./data/pulling_right_view/gts --masks_dir ./data/pulling_right_view/masks
+  
+  python run_compute_metrics_som.py --result_dir ./data/cutting_right_view/renders --gt_dir ./data/cutting_right_view/gts --masks_dir ./data/cutting_right_view/masks
   ```
 
 
