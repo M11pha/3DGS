@@ -296,3 +296,39 @@ $$
 具体而言，对于属于第 $b$ 个聚类的轨迹集 $\{\mathbf{X}_t\}_b$，我们在$\tau = 0, \dots, T$ 的所有时刻上，利用**加权 Procrustes 对齐**将点集 $\{\mathbf{X}_0\}_b$ 与$\{\mathbf{X}_\tau\}_b$对齐，从而初始化基转换$\mathbf{T}_{0 \to \tau}^{(b)}$。其中的加权系数由 TAPIR 的**不确定度**和**可见性得分**共同决定。接着，我们令每个高斯对应的权重 $\mathbf{w}^{(b)}$ 按与该高斯在规范帧中对应聚类中心的距离**呈指数衰减**的方式进行初始化。
 
 最后，我们在**时间平滑性约束**下，使用 $\mathcal{l}_1$ 损失来拟合观测到的 3D 轨迹，对 $\boldsymbol{\mu}_0$、$\mathbf{w}^{(b)}$ 以及基函数集合 $\{ \mathbf{T}^{(b)}_{0 \to t}\}^{B}_{b=1}$进行优化。
+
+==**训练**== 我们使用两组损失来监督动态高斯（dynamic Gaussians）。第一组损失包括我们的重建损失，用于匹配每帧的像素级颜色、深度和掩码输入。第二组损失则用于在时间维度上保持对应关系的一致性。具体来说，在每个训练步骤中，我们根据方程 (2)，从对应的训练相机 $(\mathbf{K}_t, \mathbf{E}_t)$ 渲染出图像 $\hat{\mathbf{I}}_t$、深度$\hat{\mathbf{D}}_t$和掩码 $\hat{\mathbf{M}}_t$。我们对这些预测逐帧地施加重建损失来进行监督。
+$$
+\begin{equation}
+L_{\mathrm{recon}} = \|\hat{\mathbf{I}} - \mathbf{I}\|_1 
++ \lambda_{\mathrm{depth}} \|\hat{\mathbf{D}} - \mathbf{D}\|_1 
++ \lambda_{\mathrm{mask}} \|\hat{\mathbf{M}} - 1\|_1.
+\end{equation}
+$$
+第二组损失用于监督高斯在不同帧之间的运动。具体来说，我们会对随机采样的查询时间 $t$和目标时间 $t'$ 这对时刻，额外渲染出 2D 轨迹 $\hat{\mathbf{u}}_{t \to t'} $和重投影的深度$\hat{\mathbf{D}}_{t \to t'} $。然后，我们使用“提升（lifted）的”长距离 2D 轨迹估计来监督这些渲染出的对应关系，公式如下：
+$$
+\begin{equation}
+L_{\mathrm{track\text{-}2d}} 
+= \left\| \mathbf{U}_{t \to t'} - \hat{\mathbf{U}}_{t \to t'} \right\|_1 ,
+\quad\text{and}\quad
+L_{\mathrm{track\text{-}depth}} 
+= \left\| \hat{\mathbf{d}}_{t \to t'} - \hat{\mathbf{D}}\!\bigl(\mathbf{U}_{t \to t'}\bigr) \right\|_1.
+\end{equation}
+$$
+最后，我们在随机采样的动态高斯与它们的 k-近邻之间施加距离保持（distance-preserving）损失。令 $\hat{\mathbf{X}}_t$ 和 $\hat{\mathbf{X}}_{t'}$ 分别表示同一个高斯在时间 $t$ 和 $t'$ 的位置，令 $\mathcal{C}_k(\hat{\mathbf{X}}_t)$ 表示 $\hat{\mathbf{X}}_t$ 的 kk-近邻集合，则我们定义：
+$$
+\begin{equation}
+L_{\mathrm{rigidity}} 
+= \bigl\| 
+\mathrm{dist}\!\bigl(\hat{\mathbf{X}}_t,\; C_k(\hat{\mathbf{X}}_t)\bigr) 
+- \mathrm{dist}\!\bigl(\hat{\mathbf{X}}_{t'},\; \mathcal{C}_k(\hat{\mathbf{X}}_t)\bigr) 
+\bigr\|_{2}^{2},
+\end{equation}
+$$
+其中dist$(\cdot,\cdot)$测量欧几里得距离。
+
+==**实现细节**== 对于自然场景（in-the-wild）视频，我们通过以下步骤获取其相机参数：首先运行 UniDepth [66]，以获取相机内参和度量深度图；然后在使用 UniDepth 生成的深度图的基础上，以 RGB-D 模式运行 Droid-SLAM [87] 以获得相机位姿。该过程既高效又能提供准确的相机参数。对于在公共基准数据集上的方法评估，我们则直接使用数据集中提供的相机标注（例如来自 COLMAP [77] 或模拟环境）。我们使用 Adam 优化器 [41] 来优化模型。其中，前 1000 次迭代用于初始拟合，之后进行 500 个 epoch 的联合优化。在所有实验中，$ \mathbb{S E}(3)$ 基（bases）$B$ 的数量设为 20。场景中，动态部分初始化了 4 万个高斯，静态部分初始化了 10 万个高斯。对于动态和静态高斯，我们采用了与 3D-GS [40] 相同的自适应高斯控制策略。对于分辨率为 960×720、长度为 300 帧的视频序列，在 A100 GPU 上完成训练大约需要 2 小时。我们的渲染帧率约为 40 fps。
+
+### 4 Experiments
+
+我们在多种任务上对方法的表现进行了定量与定性评估，包括：长距离三维点追踪、长距离二维点追踪，以及新视角合成。我们特别针对那些在场景中存在显著运动的数据集进行评估。具体而言，iPhone 数据集 [21] 中随手拍摄的真实场景非常符合我们的目标应用场景。该数据集提供了完整的标注信息，包括同时拍摄的验证视角、激光雷达深度，以及覆盖整段视频的稀疏二维点对应关系，可用于评估我们在上述三项任务上的性能。鉴于在真实数据上获取精确三维追踪标注的难度较大，我们还使用合成的 MOVi-F Kubric 数据集 [23] 来评估我们的性能。
