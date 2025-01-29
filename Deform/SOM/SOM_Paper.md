@@ -44,7 +44,7 @@
 
 ## 3 Method
 
-> 我们的方法将动态场景的 T 视频帧序列 {It ∈ RH×W ×3}、相机内在参数 Kt ∈ R3×3 和每个输入的世界到相机外在参数 Et ∈ SE(3) 作为输入框架它。我们的目标是从这些输入中恢复整个动态场景的几何形状以及场景中每个点的全长 3D 运动轨迹。与大多数先前的动态 NeRF 方法 [21,50,52,90,100] 不同，这些方法通过体积射线投射渲染场景内容并隐式地表示固定 3D 位置的运动，我们将密集场景元素建模为一组规范的 3D 高斯，但允许它们通过完整的运动轨迹平移和旋转整个视频。我们采用基于点的显式表示，因为它同时允许 (1) 实时高保真渲染和 (2) 从任何输入时间对任何表面点进行全长 3D 跟踪。
+> 我们的方法将动态场景的 T 视频帧序列 ${I_t ∈ R^{H \times W \times 3}}$、相机内在参数 Kt ∈ R3×3 和每个输入的世界到相机外在参数 Et ∈ SE(3) 作为输入框架它。我们的目标是从这些输入中恢复整个动态场景的几何形状以及场景中每个点的全长 3D 运动轨迹。与大多数先前的动态 NeRF 方法 [21,50,52,90,100] 不同，这些方法通过体积射线投射渲染场景内容并隐式地表示固定 3D 位置的运动，我们将密集场景元素建模为一组规范的 3D 高斯，但允许它们通过完整的运动轨迹平移和旋转整个视频。我们采用基于点的显式表示，因为它同时允许 (1) 实时高保真渲染和 (2) 从任何输入时间对任何表面点进行全长 3D 跟踪。
 
 输入: 动态场景的RGB视频帧序列$\left\{I_t \in \mathbb{R}^{H \times W \times 3}\right\}$，相机内参$\mathbf{K}_t \in \mathbb{R}^{3 \times 3}$，相机外参$\mathbf{E}_t \in \mathbb{S E}(3)$
 
@@ -141,7 +141,7 @@ L_{\mathrm{recon}} = \|\hat{\mathbf{I}} - \mathbf{I}\|_1
 + \lambda_{\mathrm{mask}} \|\hat{\mathbf{M}} - 1\|_1.
 \end{equation}
 $$
-第二组损失用于监督高斯在不同帧之间的运动。具体来说，我们会对随机采样的查询时间 $t$和目标时间 $t'$ 这对时刻，额外渲染出 2D 轨迹 $\hat{\mathbf{u}}_{t \to t'} $和重投影的深度$\hat{\mathbf{D}}_{t \to t'} $。然后，我们使用“提升（lifted）的”长距离 2D 轨迹估计来监督这些渲染出的对应关系，公式如下：
+第二组损失用于监督高斯在不同帧之间的运动。具体来说，我们会对随机采样的查询时间 $t$和目标时间 $t'$ 这对时刻，额外渲染出 2D 轨迹 $\hat{\mathbf{}}_{t \to t'} $和重投影的深度$\hat{\mathbf{D}}_{t \to t'} $。然后，我们使用“提升（lifted）的”长距离 2D 轨迹估计来监督这些渲染出的对应关系，公式如下：
 $$
 \begin{equation}
 L_{\mathrm{track\text{-}2d}} 
@@ -151,13 +151,13 @@ L_{\mathrm{track\text{-}depth}}
 = \left\| \hat{\mathbf{d}}_{t \to t'} - \hat{\mathbf{D}}\!\bigl(\mathbf{U}_{t \to t'}\bigr) \right\|_1.
 \end{equation}
 $$
-最后，我们在随机采样的动态高斯与它们的 k-近邻之间施加距离保持（distance-preserving）损失。令 $\hat{\mathbf{X}}_t$ 和 $\hat{\mathbf{X}}_{t'}$ 分别表示同一个高斯在时间 $t$ 和 $t'$ 的位置，令 $\mathcal{C}_k(\hat{\mathbf{X}}_t)$ 表示 $\hat{\mathbf{X}}_t$ 的 kk-近邻集合，则我们定义：
+最后，我们在随机采样的动态高斯与它们的 k-近邻之间施加距离保持（distance-preserving）损失。令 $\hat{\mathbf{X}}_t$ 和 $\hat{\mathbf{X}}_{t'}$ 分别表示同一个高斯在时间 $t$ 和 $t'$ 的位置，令 $\mathcal{C}_k(\hat{\mathbf{X}}_t)$ 表示 $\hat{\mathbf{X}}_t$ 的 k-近邻集合，则我们定义：
 $$
 \begin{equation}
 L_{\mathrm{rigidity}} 
 = \bigl\| 
 \mathrm{dist}\!\bigl(\hat{\mathbf{X}}_t,\; C_k(\hat{\mathbf{X}}_t)\bigr) 
-- \mathrm{dist}\!\bigl(\hat{\mathbf{X}}_{t'},\; \mathcal{C}_k(\hat{\mathbf{X}}_t)\bigr) 
+- \mathrm{dist}\!\bigl(\hat{\mathbf{X}}_{t'},\; \mathcal{C}_k(\hat{\mathbf{X}}_{t'})\bigr) 
 \bigr\|_{2}^{2},
 \end{equation}
 $$
