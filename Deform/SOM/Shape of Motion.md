@@ -48,6 +48,11 @@ python run_training.py --work-dir ./output/cutting-4 data:custom --data.seq-name
 /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting_4
 ```
 
+```bash
+# Track
+python render_tracks.py --work-dir /home/ekko/datasets/Shapeofmotion/Pulling/Track data:custom  --data.seq-name pulling --data.is-train False --data.root-dir /home/ekko/datasets/Shapeofmotion/Pulling/pulling_dataset  trajectory:arc time:replay
+```
+
 
 
 # Cutting
