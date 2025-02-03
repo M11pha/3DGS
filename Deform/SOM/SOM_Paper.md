@@ -141,7 +141,7 @@ L_{\mathrm{recon}} = \|\hat{\mathbf{I}} - \mathbf{I}\|_1
 + \lambda_{\mathrm{mask}} \|\hat{\mathbf{M}} - 1\|_1.
 \end{equation}
 $$
-第二组损失用于监督高斯在不同帧之间的运动。具体来说，我们会对随机采样的查询时间 $t$和目标时间 $t'$ 这对时刻，额外渲染出 2D 轨迹 $\hat{\mathbf{}}_{t \to t'} $和重投影的深度$\hat{\mathbf{D}}_{t \to t'} $。然后，我们使用“提升（lifted）的”长距离 2D 轨迹估计来监督这些渲染出的对应关系，公式如下：
+第二组损失用于监督高斯在不同帧之间的运动。具体来说，我们会对随机采样的查询时间 $t$和目标时间 $t'$ 这对时刻，额外渲染出 2D 轨迹 $\hat{\mathbf{u}}_{t \to t'} $和重投影的深度$\hat{\mathbf{D}}_{t \to t'} $。然后，我们使用“提升（lifted）的”长距离 2D 轨迹估计来监督这些渲染出的对应关系，公式如下：
 $$
 \begin{equation}
 L_{\mathrm{track\text{-}2d}} 
