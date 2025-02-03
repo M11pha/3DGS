@@ -18,7 +18,15 @@
 
   ```bash
   python run_val.py --work-dir /home/ekko/datasets/Shapeofmotion/Ordinal_depth_loss/shape-of-motion/outputs/pulling_depth_test --model 4000 data:custom --data.seq-name pulling --data.root-dir /home/ekko/datasets/Shapeofmotion/Pulling/pulling_dataset --data.is-train False
+  # StereoMIS--------------------------------------------------------------------------
+  python run_compute_metrics_som.py --result_dir ./data/stereomis_p1/renders --gt_dir ./data/stereomis_p1/gts --masks_dir ./data/stereomis_p1/masks
   
+  python run_compute_metrics_som.py --result_dir ./data/stereomis_p2_3/renders --gt_dir ./data/stereomis_p2_3/gts --masks_dir ./data/stereomis_p2_3/masks
+  
+  python run_compute_metrics_som.py --result_dir ./data/stereomis_p2_6_1/renders --gt_dir ./data/stereomis_p2_6_1/gts --masks_dir ./data/stereomis_p2_6_1/masks
+  
+  python run_compute_metrics_som.py --result_dir ./data/stereomis_p2_6_2/renders --gt_dir ./data/stereomis_p2_6_2/gts --masks_dir ./data/stereomis_p2_6_2/masks
+  # -----------------------------------------------------------------------------------
   python run_compute_metrics_som.py --result_dir ./data/cutting/renders --gt_dir ./data/cutting/gts --masks_dir ./data/cutting/masks
   
   python run_compute_metrics_som.py --result_dir ./data/cutting-20/renders --gt_dir ./data/cutting-20/gts --masks_dir ./data/cutting-20/masks
