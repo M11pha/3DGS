@@ -30,7 +30,7 @@ PYTHONPATH='.' python scripts/evaluate_iphone.py \
 
 ```bash
 # LOCAL Cutting
-python process_custom.py --img-dirs /home/ekko/datasets/Shapeofmotion/Stereo_MIS/static_P2_7_110_200/images --gpus 0
+python process_custom.py --img-dirs /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P1_14940_15020/images --gpus 0
 
 /home/ekko/datasets/Ekko_2025/Shape_of_Motion/test/pulling_camera/images
 /home/ekko/datasets/Ekko_2025/Shape_of_Motion/test/camera/images
