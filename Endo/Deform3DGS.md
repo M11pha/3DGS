@@ -32,8 +32,8 @@ python metrics.py --model_path output/endonerf_pro/pulling_fdm -p test
 
 # StereoMIS
 $ python train.py -s /home/ekko/datasets/EndoStereoMIS_Choosed/stereo_P3_15140_15230 --expname StereoMIS/stereo_P3_15140_15230 --configs arguments/endonerf/default.py 
-$ python render.py --model_path output/StereoMIS/stereo_P2_6_10050_10130 --reconstruct_test --configs arguments/endonerf/default.py
-$ python metrics.py --model_path output/StereoMIS/stereo_P2_6_10050_10130 -p test
+$ python render.py --model_path output/StereoMIS/stereo_P3_15140_15230 --reconstruct_test --configs arguments/endonerf/default.py
+$ python metrics.py --model_path output/StereoMIS/stereo_P3_15140_15230 -p test
 $ python run_all.py --data_path Dynamic/stereo_P2_6_9060_9320
 $ python run_all.py --dataset_path /home/ekko/datasets/Endo_StereoMIS/Dynamic --subdata_path stereo_P3_15030_16815
 $ python run_all.py --dataset_path ./data --subdata_path stereo_P1_14760_15420
