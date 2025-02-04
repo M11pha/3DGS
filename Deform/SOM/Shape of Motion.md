@@ -29,6 +29,8 @@ PYTHONPATH='.' python scripts/evaluate_iphone.py \
 ```
 
 ```bash
+python demo.py --model=models/raft-things.pth --path=data/stereomis
+
 # LOCAL Cutting
 python process_custom.py --img-dirs /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P2_3_7500_7580/images --gpus 0
 
