@@ -30,12 +30,14 @@ PYTHONPATH='.' python scripts/evaluate_iphone.py \
 
 ```bash
 # LOCAL Cutting
-python process_custom.py --img-dirs /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P1_14940_15020/images --gpus 0
+python process_custom.py --img-dirs /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P2_3_7500_7580/images --gpus 0
 
 /home/ekko/datasets/Ekko_2025/Shape_of_Motion/test/pulling_camera/images
 /home/ekko/datasets/Ekko_2025/Shape_of_Motion/test/camera/images
 
 python run_training.py --work-dir ./outputs/cutting-part-test data:custom --data.seq-name cutting --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting_part
+
+python run_training.py --work-dir ./outputs/stereomis/p1 data:custom --data.seq-name stereomis_p1 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P1_14940_15020
 
 python run_video.py --work-dir /home/ekko/Documents/cutting data:custom  --data.seq-name cutting --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting_4 trajectory:arc time:replay
 
@@ -51,6 +53,14 @@ python run_training.py --work-dir ./output/cutting-4 data:custom --data.seq-name
 ```bash
 # Track
 python render_tracks.py --work-dir /home/ekko/datasets/Shapeofmotion/Pulling/Track data:custom  --data.seq-name pulling --data.is-train False --data.root-dir /home/ekko/datasets/Shapeofmotion/Pulling/pulling_dataset  trajectory:arc time:replay
+```
+
+# StereoMIS
+
+```bash
+python run_training.py --work-dir ./outputs/stereomis/p1 data:custom --data.seq-name stereomis_p1 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P1_14940_15020 --data.is-train True
+
+python run_val.py --work-dir ./outputs/stereomis/p1 --model 4000 data:custom --data.seq-name stereomis_p1 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P1_14940_15020 --data.is-train False
 ```
 
 
