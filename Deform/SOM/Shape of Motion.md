@@ -60,9 +60,21 @@ python render_tracks.py --work-dir /home/ekko/datasets/Shapeofmotion/Pulling/Tra
 # StereoMIS
 
 ```bash
-python run_training.py --work-dir ./outputs/stereomis/p1 data:custom --data.seq-name stereomis_p1 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P1_14940_15020 --data.is-train True
+# P1
+python run_val_right_view.py --work-dir /home/ekko/datasets/Shapeofmotion/Cutting/cutting_40_ordinal_full --model 10000 data:custom --data.seq-name cutting --data.root-dir /home/ekko/datasets/Shapeofmotion/Cutting/cutting_dataset --data.is-train False
 
-python run_val.py --work-dir ./outputs/stereomis/p1 --model 4000 data:custom --data.seq-name stereomis_p1 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P1_14940_15020 --data.is-train False
+# P2_62
+python run_training.py --work-dir ./outputs/stereomis/p2_62 data:custom --data.seq-name stereomis_p2_62 --data.root-dir /hy-tmp/stereo_P2_6_10050_10130 --data.is-train True
+
+
+
+CUDA_VISIBLE_DEVICES=2 python run_training.py --work-dir ./outputs/stereomis/p3 data:custom --data.seq-name stereomis_p3 --data.root-dir /home/gouhao/Github/Downloads/stereo_P3_15140_15230 --data.is-train True
+
+python run_training.py --work-dir ./outputs/stereomis/p2_61 data:custom --data.seq-name stereomis_p2_61 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P2_6_9740_9820 --data.is-train True
+
+stereo_P2_6_9740_9820
+
+python run_val.py --work-dir ./outputs/stereomis/p2_3 --model 4000 data:custom --data.seq-name stereomis_p2_3 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P2_3_7500_7580 --data.is-train False
 ```
 
 
