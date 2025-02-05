@@ -141,7 +141,7 @@ python run_video.py --work-dir ./calibration/cutting-part data:custom  --data.se
 #----------------------------------------------------------------------------------
 python mask_app.py --root_dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/pulling_soft_tissues
 
-python process_custom.py --img-dirs /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting_part/images --gpus 0
+python process_custom.py --img-dirs /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P2_6_10050_10130/images --gpus 0
 
 python run_training.py --work-dir ./cutting data:custom --data.seq-name cutting --data.root-dir /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting
 
