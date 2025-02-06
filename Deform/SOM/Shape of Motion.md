@@ -65,7 +65,41 @@ python run_training.py --work-dir ./outputs/stereomis/p1_full data:custom --data
 
 python run_val_right_view.py --work-dir /home/ekko/datasets/Shapeofmotion/Cutting/cutting_40_ordinal_full --model 10000 data:custom --data.seq-name cutting --data.root-dir /home/ekko/datasets/Shapeofmotion/Cutting/cutting_dataset --data.is-train False
 
+# P2_3
+python run_val.py --work-dir ./outputs/stereomis/p2_3_full --model 5000 data:custom --data.seq-name stereomis_p2_3 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P2_3_7500_7580 --data.is-train False
+
+python run_val_right_view.py --work-dir ./outputs/stereomis/p2_3_full --model 5000 data:custom --data.seq-name stereomis_p2_3 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P2_3_7500_7580 --data.is-train False
+
+python run_compute_metrics_som.py --result_dir ./data/stereomis_p2_3_right_view/renders --gt_dir ./data/stereomis_p2_3_right_view/gts --masks_dir ./data/stereomis_p2_3_right_view/masks
+
+# P2_61
+python run_val.py --work-dir ./outputs/stereomis/p2_61 --model 5000 data:custom --data.seq-name stereomis_p2_61 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P2_6_9740_9820 --data.is-train False
+
+python run_val_right_view.py --work-dir ./outputs/stereomis/p2_61_full --model 5000 data:custom --data.seq-name stereomis_p2_61 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P2_6_9740_9820 --data.is-train False
+
+python run_compute_metrics_som.py --result_dir ./data/stereomis_p2_6_1_right_view/renders --gt_dir ./data/stereomis_p2_6_1_right_view/gts --masks_dir ./data/stereomis_p2_6_1_right_view/masks
 # P2_62
+python run_val.py --work-dir ./outputs/stereomis/p2_62 --model 5000 data:custom --data.seq-name stereomis_p2_62 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P2_6_10050_10130 --data.is-train False
+
+python run_val_right_view.py --work-dir ./outputs/stereomis/p2_62_full --model 5000 data:custom --data.seq-name stereomis_p2_62 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P2_6_10050_10130 --data.is-train False
+
+python run_compute_metrics_som.py --result_dir ./data/stereomis_p2_6_2_right_view/renders --gt_dir ./data/stereomis_p2_6_2_right_view/gts --masks_dir ./data/stereomis_p2_6_2_right_view/masks
+# P3
+python run_val_right_view.py --work-dir ./outputs/stereomis/p3_full --model 6000 data:custom --data.seq-name stereomis_p3 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P3_15140_15230 --data.is-train False
+
+python run_compute_metrics_som.py --result_dir ./data/stereomis_p3_right_view/renders --gt_dir ./data/stereomis_p3_right_view/gts --masks_dir ./data/stereomis_p3_right_view/masks
+
+
+python run_val.py --work-dir ./outputs/stereomis/p2_62_full --model 5000 data:custom --data.seq-name stereomis_p2_62 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P2_6_10050_10130 --data.is-train False
+
+python run_compute_metrics_som.py --result_dir ./data/stereomis_p2_6_2/renders --gt_dir ./data/stereomis_p2_6_2/gts --masks_dir ./data/stereomis_p2_6_2/masks
+# P3
+python run_val.py --work-dir ./outputs/stereomis/p3 --model 6000 data:custom --data.seq-name stereomis_p3 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P3_15140_15230 --data.is-train False
+
+python run_val.py --work-dir ./outputs/stereomis/p3_full --model 6000 data:custom --data.seq-name stereomis_p3 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P3_15140_15230 --data.is-train False
+
+python run_compute_metrics_som.py --result_dir ./data/stereomis_p3/renders --gt_dir ./data/stereomis_p3/gts --masks_dir ./data/stereomis_p3/masks
+
 python run_training.py --work-dir ./outputs/stereomis/p2_62 data:custom --data.seq-name stereomis_p2_62 --data.root-dir /hy-tmp/stereo_P2_6_10050_10130 --data.is-train True
 
 
@@ -76,7 +110,14 @@ python run_training.py --work-dir ./outputs/stereomis/p2_61 data:custom --data.s
 
 stereo_P2_6_9740_9820
 
-python run_val.py --work-dir ./outputs/stereomis/p2_3 --model 4000 data:custom --data.seq-name stereomis_p2_3 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P2_3_7500_7580 --data.is-train False
+python run_val.py --work-dir ./outputs/stereomis/p1_full --model 5000 data:custom --data.seq-name stereomis_p1 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P1_14940_15020 --data.is-train False
+
+python run_val_right_view.py --work-dir ./outputs/stereomis/p1_full --model 5000 data:custom --data.seq-name stereomis_p1 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P1_14940_15020 --data.is-train False
+
+python run_compute_metrics_som.py --result_dir ./data/stereomis_p1/renders --gt_dir ./data/stereomis_p1/gts --masks_dir ./data/stereomis_p1/masks
+
+python run_compute_metrics_som.py --result_dir ./data/stereomis_p1_right_view/renders --gt_dir ./data/stereomis_p1_right_view/gts --masks_dir ./data/stereomis_p1_right_view/masks
+
 ```
 
 

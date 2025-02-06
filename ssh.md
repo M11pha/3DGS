@@ -45,11 +45,11 @@ scp -P 25790 stereo_P2_6_10050_10130.zip  root@i-1.gpushare.com:/hy-tmp
 scp -P 2211 /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P2_6_10050_10130.zip gouhao@39.100.92.125:/home/gouhao/Github/Downloads # 从本地上传文件夹至服务器
 scp -P 220 C:\Users\61674\.ssh\id_windows_gh.pub gouhao@47.98.186.253:.ssh
 
-scp -P 2211 gouhao@39.100.92.125:/home/gouhao/Github/shape-of-motion/outputs/stereomis/p3/checkpoints/model_6000.ckpt /home/ekko/datasets/Shapeofmotion/Ordinal_depth_loss/shape-of-motion/outputs/stereomis/p3/checkpoints # 从服务器下载文件夹至本地 
+scp -P 2211 gouhao@39.100.92.125:/home/gouhao/Github/shape-of-motion/outputs/stereomis/p3_full/checkpoints/model_6000.ckpt /home/ekko/datasets/Shapeofmotion/Ordinal_depth_loss/shape-of-motion/outputs/stereomis/p3_full/checkpoints # 从服务器下载文件夹至本地 
 
 ssh -p 25790 root@i-1.gpushare.com
 
-scp -P 25790 root@i-1.gpushare.com:/hy-tmp/p2_62_full/checkpoints/model_5000.ckpt /home/ekko/datasets/Shapeofmotion/Ordinal_depth_loss/shape-of-motion/outputs/stereomis/p2_62_full # 从服务器下载文件夹至本地 
+scp -P 25790 root@i-1.gpushare.com:/root/ssh/outputs/stereomis/p2_62/checkpoints/model_5000.ckpt /home/ekko/datasets/Shapeofmotion/Ordinal_depth_loss/shape-of-motion/outputs/stereomis/p2_62 # 从服务器下载文件夹至本地 
 
 ```
 
