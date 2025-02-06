@@ -61,6 +61,8 @@ python render_tracks.py --work-dir /home/ekko/datasets/Shapeofmotion/Pulling/Tra
 
 ```bash
 # P1
+python run_training.py --work-dir ./outputs/stereomis/p1_full data:custom --data.seq-name stereomis_p1 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P1_14940_15020 --data.is-train True
+
 python run_val_right_view.py --work-dir /home/ekko/datasets/Shapeofmotion/Cutting/cutting_40_ordinal_full --model 10000 data:custom --data.seq-name cutting --data.root-dir /home/ekko/datasets/Shapeofmotion/Cutting/cutting_dataset --data.is-train False
 
 # P2_62
