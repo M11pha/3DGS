@@ -65,6 +65,8 @@ python run_training.py --work-dir ./outputs/stereomis/p1_full data:custom --data
 
 python run_val_right_view.py --work-dir /home/ekko/datasets/Shapeofmotion/Cutting/cutting_40_ordinal_full --model 10000 data:custom --data.seq-name cutting --data.root-dir /home/ekko/datasets/Shapeofmotion/Cutting/cutting_dataset --data.is-train False
 
+python run_compute_metrics_som.py --result_dir ./data/stereomis_p1/renders --gt_dir ./data/stereomis_p1/gts --masks_dir ./data/stereomis_p1/masks
+
 # P2_3
 python run_val.py --work-dir ./outputs/stereomis/p2_3_full --model 5000 data:custom --data.seq-name stereomis_p2_3 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P2_3_7500_7580 --data.is-train False
 
