@@ -87,6 +87,9 @@ $ python scripts/pre_dam_dep.py --dataset_root /home/ekko/datasets/Endo_StereoMI
 
 pip install torch==2.0.1 torchvision==0.15.1 torchaudio==2.0.1 --index-url https://download.pytorch.org/whl/cu118
 
+pip install torch==2.0.1 torchvision==0.15.1 torchaudio==2.0.1 --index-url https://mirrors.aliyun.com/pytorch-wheels/cu118
+
+https://mirrors.aliyun.com/pytorch-wheels/cu118
 
 python scripts/pre_dam_dep.py --dataset_root ./dataset/StereoMIS/Dynamic/stereo_P1_14760_15420 --rgb_paths images
 
