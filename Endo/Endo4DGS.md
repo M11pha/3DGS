@@ -87,13 +87,16 @@ $ python scripts/pre_dam_dep.py --dataset_root /home/ekko/datasets/Endo_StereoMI
 
 pip install torch==2.0.1 torchvision==0.15.1 torchaudio==2.0.1 --index-url https://download.pytorch.org/whl/cu118
 
-pip install torch==2.0.1 torchvision==0.15.1 torchaudio==2.0.1 --index-url https://mirrors.aliyun.com/pytorch-wheels/cu118
+pip install torchvision==0.15.2 torchaudio==2.0.2 --index-url https://download.pytorch.org/whl/cu118
+
+
+pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 --index-url https://mirrors.aliyun.com/pytorch-wheels/cu118
 
 https://mirrors.aliyun.com/pytorch-wheels/cu118
 
 python scripts/pre_dam_dep.py --dataset_root ./dataset/StereoMIS/Dynamic/stereo_P1_14760_15420 --rgb_paths images
 
-$ PYTHONPATH='.'  python train.py -s ./dataset/StereoMIS/Dynamic/stereo_P2_6_9060_9320 --port 6017 --expname "StereoMIS/Dynamic/stereo_P2_6_9060_9320" --configs arguments/stereomis.py 
+$ PYTHONPATH='.'  python train.py -s /home/ekko/datasets/EndoStereoMIS_Choosed/stereo_P1_14940_15020 --port 6017 --expname "StereoMIS/p1" --configs arguments/stereomis.py 
 
 python render.py --model_path output/StereoMIS/Dynamic/stereo_P1_14760_15420 --configs arguments/stereomis.py
 python metrics.py --model_path output/StereoMIS/Dynamic/stereo_P1_14760_15420
