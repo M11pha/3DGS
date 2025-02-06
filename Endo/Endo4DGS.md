@@ -98,7 +98,7 @@ python scripts/pre_dam_dep.py --dataset_root ./dataset/StereoMIS/Dynamic/stereo_
 
 $ PYTHONPATH='.'  python train.py -s /home/ekko/datasets/EndoStereoMIS_Choosed/stereo_P1_14940_15020 --port 6017 --expname "StereoMIS/p1" --configs arguments/stereomis.py 
 
-python render.py --model_path output/StereoMIS/Dynamic/stereo_P1_14760_15420 --configs arguments/stereomis.py
+python render.py --model_path output/StereoMIS/p1 --configs arguments/stereomis.py
 python metrics.py --model_path output/StereoMIS/Dynamic/stereo_P1_14760_15420
 
 python render.py --model_path output/endonerf/cutting --pc --configs arguments/endonerf.py
