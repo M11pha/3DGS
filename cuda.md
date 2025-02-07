@@ -1,7 +1,7 @@
 # CUDA
 
 ```bash
-conda create --prefix=/home/ekko/datasets/anaconda3/endo4dgs python=3.9 
+conda create --prefix=/home/ekko/datasets/anaconda3/endogaussian python=3.9 
 conda config --append envs_dirs /home/ekko/datasets/anaconda3/
 
 pip cache purge # 清除pip缓存

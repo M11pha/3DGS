@@ -12,7 +12,7 @@
 
 ```bash
 # Train
-python train.py -s dataset/endonerf/pulling --port 6017 --expname endonerf/pulling --configs arguments/endonerf/pulling.py 
+python train.py -s /home/ekko/datasets/Shapeofmotion/Right_view/EndoGaussian/datasets/EndoNeRF/cutting_tissues_twice --port 6017 --expname endonerf/cutting --configs arguments/endonerf/cutting.py 
 python train.py -s dataset/endonerf/cutting --port 6017 --expname endonerf/cutting --configs arguments/endonerf/cutting.py
 # Render
 python render.py --model_path output/endonerf/pulling  --skip_train --skip_video --configs arguments/endonerf/pulling.py

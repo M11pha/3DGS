@@ -94,14 +94,31 @@ pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 --index-url https
 
 https://mirrors.aliyun.com/pytorch-wheels/cu118
 
-python scripts/pre_dam_dep.py --dataset_root ./dataset/StereoMIS/Dynamic/stereo_P1_14760_15420 --rgb_paths images
+python scripts/pre_dam_dep.py --dataset_root /home/ekko/datasets/Shapeofmotion/Right_view/Datasets/endonerf_sam/cutting --rgb_paths images
 
-$ PYTHONPATH='.'  python train.py -s /home/ekko/datasets/EndoStereoMIS_Choosed/stereo_P1_14940_15020 --port 6017 --expname "StereoMIS/p1" --configs arguments/stereomis.py 
+ python train.py -s /home/ekko/datasets/Shapeofmotion/Right_view/Datasets/endonerf_sam/cutting --port 6017 --expname "endonerf/cutting" --configs arguments/endonerf.py  3000
+ 
+/home/ekko/datasets/Shapeofmotion/Right_view/Datasets/endonerf_sam/cutting
+python metrics.py --model_path output/endonerf/cutting
 
-python train.py -s /home/ekko/datasets/EndoStereoMIS_Choosed/stereo_P2_3_7500_7580 --port 6017 --expname "StereoMIS/p2_3" --configs arguments/stereomis.py 
 
-python render.py --model_path output/StereoMIS/p1 --configs arguments/stereomis.py
-python metrics.py --model_path output/StereoMIS/Dynamic/stereo_P1_14760_15420
+python train.py -s /home/ekko/datasets/Shapeofmotion/Right_view/Datasets/endonerf_sam/pulling --port 6017 --expname "endonerf/pulling" --configs arguments/endonerf.py 
+ 
+python render.py --model_path output/endonerf/pulling --configs arguments/endonerf.py --skip_train --skip_test
+ 
+$ PYTHONPATH='.'  python train.py -s /home/ekko/datasets/Shapeofmotion/Right_view/Datasets/StereoMIS_sam/stereo_P1_14940_15020 --port 6017 --expname "StereoMIS/p1" --configs arguments/stereomis.py  3000
+
+python train.py -s /home/ekko/datasets/EndoStereoMIS_Choosed/stereo_P2_3_7500_7580 --port 6017 --expname "StereoMIS/p2_3" --configs arguments/stereomis.py 3000
+
+python train.py -s /home/ekko/datasets/EndoStereoMIS_Choosed/stereo_P2_6_9740_9820 --port 6017 --expname "StereoMIS/p2_61" --configs arguments/stereomis.py 2000
+
+python train.py -s /home/ekko/datasets/EndoStereoMIS_Choosed/stereo_P2_6_10050_10130 --port 6017 --expname "StereoMIS/p2_62" --configs arguments/stereomis.py 3000
+
+python train.py -s /home/ekko/datasets/EndoStereoMIS_Choosed/stereo_P3_15140_15230 --port 6017 --expname "StereoMIS/p2_62" --configs arguments/stereomis.py 3000
+
+python render.py --model_path output/StereoMIS/p2_3 --configs arguments/stereomis.py --skip_train --skip_test
+
+python metrics.py --model_path output/StereoMIS/p2_62
 
 python render.py --model_path output/endonerf/cutting --pc --configs arguments/endonerf.py
 python run_all.py --dataset_path ./dataset/StereoMIS/Dynamic/stereo_P1_14760_15420

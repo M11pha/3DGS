@@ -1,5 +1,27 @@
 
 
+Deform3DGS: Flexible Deformation for  Fast Surgical Scene Reconstruction  with Gaussian Splatting
+
+Endo-4DGS: Endoscopic Monocular Scene Reconstruction with 4D Gaussian Splatting
+
+EndoGaussian: Real-time Gaussian Splatting for  Dynamic Endoscopic Scene Reconstruction
+
+EndoGS: Deformable Endoscopic Tissues  Reconstruction with Gaussian Splatting
+
+Shape of Motion:  4D Reconstruction from a Single Video
+
+MODGS: DYNAMIC GAUSSIAN SPLATTING FROM  CASUALLY-CAPTURED MONOCULAR VIDEOS
+
+
+
+dynamic gaussian splatting tracking from Endoscopic Monocular Scene video
+
+Endo-DGSMT Endoscopic Monocular Scene Reconstruction with dynamic gaussian splatting and motion tracking
+
+
+
+
+
 # Abstract
 
 组织变形为准确的手术现场重建带来了关键挑战。尽管产生了较高的重建质量，但现有方法仍遭受缓慢的渲染速度和较长的训练时间，从而限制了其术中适用性。这项工作是由3D高斯分裂的最新进展，这是一种实时3D渲染的新兴技术，这项工作提出了一种新型的快速重建框架，称为变形3DGS，用于内窥镜手术期间可变形的组织。具体而言，我们通过集成点云初始化以改善重建，将3D GS引入外科场景。此外，我们提出了一种新型的柔性变形建模方案（FDM），以学习单个高斯人水平的组织变形动力学。我们的FDM可以用有效的表示形式对表面变形进行建模，从而实现实时渲染性能。更重要的是，FDM显着加速了手术现场的重建，证明了相当大的临床值，尤其是在时间效率至关重要的术中环境中。关于Davinci机器人手术视频的实验表明我们的方法有效性，展示了优越的重建保真度PSNR：（37.90）和渲染速度（338.8 fps），而实质上将训练时间降低到只有1分钟/场景。我们的代码可在https://github.com/jinlab-imvr/deform3dgs上找到。
