@@ -2,6 +2,8 @@
 
 ```bash
 conda create --prefix=/home/ekko/datasets/anaconda3/endogaussian python=3.9 
+conda create --prefix=/home/ekko/datasets/anaconda3/endogs python=3.8 
+
 conda config --append envs_dirs /home/ekko/datasets/anaconda3/
 
 pip cache purge # 清除pip缓存
@@ -17,7 +19,7 @@ sudo ln -s /usr/local/cuda-12.2 /usr/local/cuda
 
 pip install /home/gouhao/Github/ProPainter/download/torchvision-0.16.0+cu118-cp38-cp38-linux_x86_64.whl
 git clone --resursive 
-pip3 install torch==2.4.1 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 pip3 install torchaudio --index-url https://download.pytorch.org/whl/cu118
 pip3 install torch torchvision torchaudio -i https://mirrors.aliyun.com/pytorch-wheels/cu118
 wget https://mirrors.aliyun.com/pytorch-wheels/cu118/torch-2.1.0+cu118-cp38-cp38-linux_x86_64.whl
