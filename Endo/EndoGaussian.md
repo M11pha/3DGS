@@ -15,7 +15,8 @@
 python train.py -s /home/ekko/datasets/Shapeofmotion/Right_view/EndoGaussian/datasets/EndoNeRF/cutting_tissues_twice --port 6017 --expname endonerf/cutting --configs arguments/endonerf/cutting.py 
 python train.py -s dataset/endonerf/cutting --port 6017 --expname endonerf/cutting --configs arguments/endonerf/cutting.py
 # Render
-python render.py --model_path output/endonerf/pulling  --skip_train --skip_video --configs arguments/endonerf/pulling.py
+python render.py --model_path /home/ekko/datasets/Shapeofmotion/Metiral/experiment_2_8/StereoMIS_Experiment_Results/EndoGaussian/output/stereomis/stereo_P1_14940_15020_1  --skip_train --skip_test --configs arguments/endonerf/pulling.py
+
 python render.py --model_path output/endonerf/cutting  --skip_train --skip_video --configs arguments/endonerf/cutting.py
 python render.py --model_path output/endonerf/cutting --skip_train  --configs arguments/endonerf/cutting.py
 python render.py --model_path output/endonerf/pulling --skip_train  --configs arguments/endonerf/pulling.py

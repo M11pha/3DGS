@@ -21,11 +21,21 @@
   # StereoMIS--------------------------------------------------------------------------
   python run_compute_metrics_som.py --result_dir ./data/stereomis_p1/renders --gt_dir ./data/stereomis_p1/gts --masks_dir ./data/stereomis_p1/masks
   
+  python run_compute_metrics_som.py --result_dir ./data/stereomis_p1_right_view/renders --gt_dir ./data/stereomis_p1_right_view/gts --masks_dir ./data/stereomis_p1_right_view/masks
+  
   python run_compute_metrics_som.py --result_dir ./data/stereomis_p2_3/renders --gt_dir ./data/stereomis_p2_3/gts --masks_dir ./data/stereomis_p2_3/masks
+  	
+  python run_compute_metrics_som.py --result_dir ./data/stereomis_p2_3_right_view/renders --gt_dir ./data/stereomis_p2_3_right_view/gts --masks_dir ./data/stereomis_p2_3_right_view/masks
   
   python run_compute_metrics_som.py --result_dir ./data/stereomis_p2_6_1/renders --gt_dir ./data/stereomis_p2_6_1/gts --masks_dir ./data/stereomis_p2_6_1/masks
   
+  python run_compute_metrics_som.py --result_dir ./data/stereomis_p2_6_1_right_view/renders --gt_dir ./data/stereomis_p2_6_1_right_view/gts --masks_dir ./data/stereomis_p2_6_1_right_view/masks
+  
   python run_compute_metrics_som.py --result_dir ./data/stereomis_p2_6_2/renders --gt_dir ./data/stereomis_p2_6_2/gts --masks_dir ./data/stereomis_p2_6_2/masks
+  
+  python run_compute_metrics_som.py --result_dir ./data/stereomis_p2_6_2_right_view/renders --gt_dir ./data/stereomis_p2_6_2_right_view/gts --masks_dir ./data/stereomis_p2_6_2_right_view/masks
+  
+  python run_compute_metrics_som.py --result_dir ./data/stereomis_p3_right_view/renders --gt_dir ./data/stereomis_p3_right_view/gts --masks_dir ./data/stereomis_p3_right_view/masks
   
   python run_compute_metrics_som.py --result_dir ./data/stereomis_p3/renders --gt_dir ./data/stereomis_p3/gts --masks_dir ./data/stereomis_p3/masks
   

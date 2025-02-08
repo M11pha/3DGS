@@ -72,7 +72,7 @@ python run_val.py --work-dir ./outputs/stereomis/p2_3_full --model 5000 data:cus
 
 python run_val_right_view.py --work-dir ./outputs/stereomis/p2_3_full --model 5000 data:custom --data.seq-name stereomis_p2_3 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P2_3_7500_7580 --data.is-train False
 
-python run_compute_metrics_som.py --result_dir ./data/stereomis_p2_3_right_view/renders --gt_dir ./data/stereomis_p2_3_right_view/gts --masks_dir ./data/stereomis_p2_3_right_view/masks
+python run_compute_metrics_som.py --result_dir ./data/stereomis_p1_right_view/renders --gt_dir ./data/stereomis_p1_right_view/gts --masks_dir ./data/stereomis_p1_right_view/masks
 
 # P2_61
 python run_val.py --work-dir ./outputs/stereomis/p2_61 --model 5000 data:custom --data.seq-name stereomis_p2_61 --data.root-dir /home/ekko/datasets/EndoStereoMIS_Choosed/SoM/stereo_P2_6_9740_9820 --data.is-train False

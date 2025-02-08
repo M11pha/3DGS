@@ -104,7 +104,7 @@ python metrics.py --model_path output/endonerf/cutting
 
 python train.py -s /home/ekko/datasets/Shapeofmotion/Right_view/Datasets/endonerf_sam/pulling --port 6017 --expname "endonerf/pulling" --configs arguments/endonerf.py 
  
-python render.py --model_path output/endonerf/pulling --configs arguments/endonerf.py --skip_train --skip_test
+python render.py --model_path /home/ekko/datasets/Shapeofmotion/Metiral/experiment_2_8/StereoMIS_Experiment_Results/Endo-4DGS/output/stereomis/stereo_P3_15140_15230_1 --configs arguments/stereomis.py --skip_train --skip_test
  
 $ PYTHONPATH='.'  python train.py -s /home/ekko/datasets/Shapeofmotion/Right_view/Datasets/StereoMIS_sam/stereo_P1_14940_15020 --port 6017 --expname "StereoMIS/p1" --configs arguments/stereomis.py  3000
 
