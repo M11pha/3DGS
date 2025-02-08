@@ -104,7 +104,7 @@ python run_compute_metrics_som.py --result_dir ./data/stereomis_p3/renders --gt_
 
 python run_training.py --work-dir ./outputs/stereomis/p2_62 data:custom --data.seq-name stereomis_p2_62 --data.root-dir /hy-tmp/stereo_P2_6_10050_10130 --data.is-train True
 
-
+ 
 
 CUDA_VISIBLE_DEVICES=2 python run_training.py --work-dir ./outputs/stereomis/p3 data:custom --data.seq-name stereomis_p3 --data.root-dir /home/gouhao/Github/Downloads/stereo_P3_15140_15230 --data.is-train True
 
