@@ -25,6 +25,11 @@ scp -P 56752  /home/ekko/datasets/Ekko_2025/Shape_of_Motion/cutting.zip  root@i-
 ssh -p 10878 root@i-1.gpushare.com
 # 发送文件到服务器
 scp -P 10878 -r /home/ekko/github/deformation/ssh  root@i-1.gpushare.com:/root/Github
+
+ssh -P 16743 root@region-46.seetacloud.com
+
+ssh -P 20725 root@connect.westc.gpuhub.com
+
 scp -P 16743 /home/ekko/datasets/MRI/data/data.zip  root@region-46.seetacloud.com:/root/autodl-tmp/HCP-1200
 /home/ekko/datasets/MRI
 ```
@@ -36,7 +41,11 @@ ssh -p 25790 root@i-1.gpushare.com
 
 scp -P 25790 stereo_P2_6_10050_10130.zip  root@i-1.gpushare.com:/hy-tmp
 
+ssh -p 38210 root@i-1.gpushare.com
+NbxAeKqCN8df57mNWYpgYPd6Twga3n8B
+scp -P 38210 F:\Users\Ekko\Downloads\models.zip root@i-1.gpushare.com:/root/models # 从本地上传文件夹至服务器
 
+python ./scripts/commands/SynthSeg_predict.py --i /root/Our_data --o /root/ours_outputs
 ```
 
 
